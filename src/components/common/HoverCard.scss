@@ -1,0 +1,38 @@
+.hover-content {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+
+.card:hover .hover-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  backdrop-filter: blur(3px) brightness(0.5);
+  border-radius: 8px;
+}
+
+.item-card:hover .hover-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(3px) brightness(0.5);
+  border-radius: 8px;
+}
+
+.dialog-comment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+  color: var(--primary-color);
+}

@@ -1,0 +1,37 @@
+@use '../../scss/variables' as *;
+
+.main-container {
+  padding: 16px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  border: 2px solid var(--primary-color);
+  border-radius: 40px;
+}
+
+.active {
+  z-index: 1;
+  color: var(--secondary-color);
+  &.section-nav:hover {
+    color: var(--body-bg);
+  }
+}
+
+.section-nav {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  padding: 8px;
+  justify-content: center;
+}
+
+.indicator {
+  position: absolute;
+  z-index: 0;
+  left: 0px;
+  background-color: var(--primary-color);
+  transition: transform 0.25s ease-out, border-radius 0.1s ease-out;
+}

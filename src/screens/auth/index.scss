@@ -1,0 +1,63 @@
+@use '../../scss/variables' as *;
+
+.main-container-auth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card-auth {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 70%;
+  height: 80%;
+  border: 2px solid var(--primary-color);
+  border-radius: 30px;
+  padding-top: 20px;
+}
+
+.nav-links-auth {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  border: 2px solid var(--primary-color);
+  border-radius: 40px;
+  margin-bottom: 15px;
+}
+
+.active {
+  z-index: 1;
+  color: var(--secondary-color);
+  &.section-nav-auth:hover {
+    color: var(--body-bg);
+  }
+}
+
+.section-nav-auth {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  padding: 8px;
+  justify-content: center;
+}
+
+.indicator-auth {
+  position: absolute;
+  z-index: 0;
+  left: 0px;
+  background-color: var(--primary-color);
+  transition: transform 0.5s ease-out, border-radius 0.7s ease-out;
+}
+
+//form
+.form-auth {
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

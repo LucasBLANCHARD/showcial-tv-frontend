@@ -1,0 +1,8 @@
+@use '../../scss/' as *;
+
+.follow-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary-color);
+  padding: 20px;
+}

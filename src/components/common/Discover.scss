@@ -1,0 +1,47 @@
+@use '../../scss/' as *;
+
+.discover-container {
+  padding: 20px;
+}
+
+.item-card {
+}
+
+.card-carousel {
+  border-radius: 8px;
+  display: flex;
+  width: 200px;
+  height: 350px;
+
+  flex-direction: column;
+  box-shadow: $box-shadow-card;
+
+  @include tablet {
+    width: 150px;
+    height: 265px;
+  }
+
+  @include mobile {
+    width: 90px;
+    height: 165px;
+  }
+}
+
+.image-container img {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+}
+
+.react-multi-carousel-list {
+  height: 400px;
+}
+
+.react-multi-carousel-item {
+  width: 200px !important;
+  margin: 30px;
+
+  @include tablet {
+    margin: 5px;
+  }
+}

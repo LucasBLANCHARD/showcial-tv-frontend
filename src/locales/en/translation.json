@@ -1,0 +1,193 @@
+{
+  "site": {
+    "description": "ShowcialTV is an innovative web application for movie and TV enthusiasts. Create and share movie and TV show lists, rate your favorite content, and discover your friends' lists. Connect with other users and explore a rich universe of entertainment."
+  },
+
+  "auth": {
+    "login": "Login",
+    "password": "Password",
+    "remember": "Remember me",
+    "email": "Email",
+    "username": "Username",
+    "signup": "Sign up",
+    "signup-success": "Your account has been successfully created. You can now log in.",
+    "signup-error": "Error while creating account. Please try again."
+  },
+
+  "navBar": {
+    "title": "ShowcialTV",
+    "research": "Search",
+    "activities": "Activities",
+    "profile": "My Profile",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+
+  "search": {
+    "movie": "Search for a movie...",
+    "serie": "Search for a series...",
+    "no-more": "End of results",
+    "load-more": "Load more",
+    "outings-of-week": "Releases of the week",
+    "popular": "Popular",
+    "popular-movies-animation": "Popular Animated Movies",
+    "popular-series-animation": "Popular Animated Series"
+  },
+
+  "card": {
+    "add-to-list": "Add to list",
+    "add-to-watchlist": "Add to watchlist",
+    "remove-from-watchlist": "Remove from watchlist",
+    "details": "Details"
+  },
+
+  "commun": {
+    "movies": "Movies",
+    "series": "Series",
+    "modify": "Modify",
+    "create": "Create",
+    "add": "Add",
+    "to-a-list": "to a list:",
+    "submit": "Submit",
+    "close": "Close",
+    "back": "Back",
+    "back-to-profile": "Back to profile"
+  },
+
+  "list": {
+    "rate": "Rating",
+    "on-twenty": " / 20",
+    "comment": "Comment",
+    "new-list": "New list",
+    "create-new-list": "Create a new list",
+    "create-list": "Create list",
+    "modify-list": "Modify list",
+    "delete-list": "Delete list",
+    "name-of-list": "List name",
+    "description": "Description",
+    "no-element": "No items in this list",
+    "added-to": "Added to list",
+    "error-adding-to": "Error while adding to list",
+    "removed-from": "Removed from list",
+    "error-removing-from": "Error while removing from list",
+    "added-to-watchlist": "Added to watchlist",
+    "error-adding-to-watchlist": "Error while adding to watchlist",
+    "remove-from-watchlist": "Remove from watchlist",
+    "error-removing-from-watchlist": "Error while removing from watchlist",
+    "comment-saved": "Comment saved",
+    "error-saving-comment": "Error while saving comment",
+    "list-created": "List created",
+    "list-modified": "List modified",
+    "list-deleted": "List deleted",
+    "error-creating-list": "Error while creating list",
+    "error-modifying-list": "Error while modifying list",
+    "error-deleting-list": "Error while deleting list",
+    "comment-deleted": "This comment will be deleted in 1 week if you don't add it to a list",
+    "error-deleting-comment": "Error while deleting comment",
+    "delete-success": "The list has been successfully deleted",
+    "delete-error": "Error while deleting list",
+    "no-rating": "No rating",
+    "see-comment": "See comment"
+  },
+
+  "activity": {
+    "activity-feed": "Activity Feed",
+    "find-users": "Find users",
+    "search-results": "Search results",
+    "no-activities": "No activities to display",
+    "add-friend": "Follow",
+    "remove-friend": "Unfollow",
+    "no-user-find": "No users found",
+    "today-at": "Today at",
+    "yesterday-at": "Yesterday at",
+    "you": "You",
+    "added-item-to-list": "<0>{{username}}</0> added <2>{{itemName}}</2> to their list <4>{{listName}}</4>.",
+    "added-comment-for-item": "<0>{{username}}</0> added a new comment for <2>{{itemName}}</2>:",
+    "modified-comment-for-item": "<0>{{username}}</0> modified their comment for <2>{{itemName}}</2>:"
+  },
+
+  "details": {
+    "realease-date": "Release Date",
+    "duration": "Duration",
+    "minutes": "min",
+    "budget": "Budget",
+    "income": "Revenue",
+    "first-air-date": "First Air Date",
+    "last-air-date": "Last Air Date",
+    "number-of-seasons": "Number of Seasons",
+    "number-of-episodes": "Number of Episodes",
+    "time-by-episode": "Time per Episode",
+    "next-episode": "Next Episode",
+    "genres": "Genres",
+    "country": "Country",
+    "languages": "Languages",
+    "on-ten": " / 10",
+    "votes": "votes"
+  },
+
+  "profile": {
+    "hello": "Hello",
+    "profile-of": "Profile of"
+  },
+
+  "follow": {
+    "followers": "Followers",
+    "followings": "Followings",
+    "follow-you": "Follow you",
+    "friend-success": "You are now following",
+    "friend-error": "Error while following",
+    "unfriend-success": "You are no longer following",
+    "unfriend-error": "Error while unfollowing"
+  },
+
+  "settings": {
+    "password-change": "Change password",
+    "current-password": "Current password",
+    "new-password": "New password",
+    "confirm-password": "Confirm password",
+    "save": "Sauvegarder",
+    "dark-mode": "Dark mode",
+    "light-mode": "Light mode",
+    "not-same-passwords": "Passwords are not the same",
+    "password-changed": "Password changed",
+    "theme-choice": "Theme choice",
+    "delete-account": "Delete account",
+    "confirm-delete": "Confirm deletion",
+    "confirm-delete-text": "Are you sure you want to delete your account ? This action is irreversible."
+  },
+
+  "error": {
+    "404": "404 - Page Not Found",
+    "404-text": "Sorry, the page you requested does not exist.",
+    "500": "500 - Server Error",
+    "500-text": "Sorry, an error occurred on the server or the item you are looking for does not exist.",
+    "generic": "An error occurred",
+    "generic-text": "Sorry, an error occurred. Please try again later.",
+    "go-home": "Go back to home",
+    "go-back": "Go back",
+    "refresh": "Refresh the page",
+    "login": "Sign up or Log in"
+  },
+
+  "footer": {
+    "showcialtv": "ShowcialTV",
+    "all-rights": "All rights reserved",
+    "about": "About",
+    "contact": "Contact",
+    "terms": "Terms of use",
+    "privacy": "Privacy Policy",
+    "tmdb": "This product uses the TMDb API but is not endorsed or certified by TMDb.",
+    "any-questions": "If you have any questions or feedback, feel free to reach out to me",
+    "email": "Email",
+    "my-email": "lucas.blanchard.dev@gmail.com",
+    "about-text": "Welcome to ShowcialTV, a website that allows you to share your favorite movies and TV shows with your friends. You can create lists of movies and series, rate them, comment on them, and share them with your friends. You can also follow your friends to see what they're watching and what they like. ShowcialTV uses the TMDB API to retrieve information about movies and TV shows",
+    "about-text-2": "ShowcialTV was created by Lucas Blanchard, a web developer passionate about movies and TV shows. It was created as a way to enrich my portfolio and is not intended for commercial purposes.",
+    "privacy-text": "Your privacy is important to us. This privacy policy explains how we collect, use, and protect your information",
+    "privacy-title-1": "Information Collected",
+    "privacy-text-1": "ShowcialTV collects the information you provide when creating your account, such as your name, email address, and password. ShowcialTV also collects the information you provide when creating lists, rating movies and TV shows, commenting on movies and TV shows, and following other users. ShowcialTV also collects information about the movies and TV shows you view, rate, comment on, and add to your lists. All of this is solely for the purpose of improving our services. We use cookies to remember your language preferences on our site. You have the option to accept or decline these cookies via the consent banner",
+    "privacy-title-2": "How Your Information Is Used",
+    "privacy-text-2": "The information we collect is used to provide and improve our services, communicate with you, and ensure the security of our platform",
+    "privacy-title-3": "Your Rights",
+    "privacy-text-3": "You have the right to access, modify, or delete your personal information. If you have any concerns about your privacy, please contact us"
+  }
+}

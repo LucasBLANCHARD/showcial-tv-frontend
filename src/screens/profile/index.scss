@@ -1,0 +1,226 @@
+@use '../../scss/' as *;
+
+.profile-to {
+  display: flex;
+  padding: 30px;
+  align-items: center;
+  justify-content: space-between;
+
+  .left-section {
+    flex: 1;
+  }
+
+  .center-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: bold;
+  }
+
+  .right-section {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.profile-follows {
+  display: flex;
+  border: solid 2px var(--primary-color);
+}
+
+.profile-follow-you {
+  margin-bottom: 10px;
+}
+
+.profile-followers {
+  height: 100%;
+  padding: 15px;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--primary-color);
+  }
+}
+
+.profile-followings {
+  height: 100%;
+  padding: 15px;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--primary-color);
+  }
+}
+
+.verticale-span {
+  border-right: solid 2px var(--primary-color);
+}
+
+.watchlist-container {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  width: 100%;
+}
+
+.watchlist-border {
+  display: flex;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  width: auto;
+}
+
+.item-watchlist-container {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  height: 300px;
+  width: 100%;
+  &:first-child {
+    border-radius: 5px 0 0 5px;
+  }
+  &:last-child {
+    border-radius: 0 5px 5px 0;
+  }
+  &:only-child {
+    border-radius: 5px;
+  }
+}
+
+.item-watchlist-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.801), rgba(0, 0, 0, 0) 70%);
+  z-index: 5;
+}
+
+.item-watchlist-container img {
+  width: 100%;
+  object-fit: cover;
+  z-index: 1; /* Positionne l'image derrière le dégradé */
+}
+
+.lists-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.list-border {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--primary-color);
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px;
+  height: 200px;
+  width: 45%;
+  position: relative;
+
+  @include tablet {
+    width: 95%;
+  }
+}
+
+.profile-title {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  padding: 10px;
+  z-index: 10;
+}
+
+.profile-list-settings {
+  width: 100%;
+}
+
+.image-profile-container {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  height: 100%;
+}
+
+.item-container {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  &:first-child {
+    border-radius: 5px 0 0 5px;
+  }
+  &:last-child {
+    border-radius: 0 5px 5px 0;
+  }
+  &:only-child {
+    border-radius: 5px;
+  }
+}
+
+.item-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.801), rgba(0, 0, 0, 0) 70%);
+  z-index: 5;
+}
+
+.item-container img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  z-index: 1; /* Positionne l'image derrière le dégradé */
+}
+
+.settings-icon {
+  color: #ffffff;
+}
+
+/* DropdownMenu.css */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--primary-color);
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.dropdown-menu.closed {
+  display: none;
+}
+
+.dropdown-menu.open {
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 8px 16px;
+  cursor: pointer;
+  &:first-child {
+    border-bottom: solid 1px var(--secondary-color);
+  }
+}
+
+.dropdown-menu li:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border-radius: 4px;
+  &:first-child {
+    border-radius: 4px 4px 0 0;
+  }
+  &:last-child {
+    border-radius: 0 0 4px 4px;
+  }
+}

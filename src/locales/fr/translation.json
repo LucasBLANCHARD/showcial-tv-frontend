@@ -1,0 +1,195 @@
+{
+  "site": {
+    "description": "ShowcialTV est une application web innovante pour les passionnés de cinéma et de télévision. Créez et partagez des listes de films et de séries, notez vos contenus préférés, et découvrez les listes de vos amis. Connectez-vous avec d'autres utilisateurs et explorez un univers riche en divertissement."
+  },
+
+  "auth": {
+    "login": "Se connecter",
+    "password": "Mot de passe",
+    "remember": "Se souvenir de moi",
+    "email": "Email",
+    "username": "Nom d'utilisateur",
+    "signup": "Créer un compte",
+    "signup-success": "Votre compte a bien été créé. Vous pouvez désormais vous connecter.",
+    "signup-error": "Erreur lors de la création du compte. Veuillez réessayer."
+  },
+
+  "navBar": {
+    "title": "ShowcialTV",
+    "research": "Rechercher",
+    "activities": "Activités",
+    "profile": "Mon Profil",
+    "settings": "Paramètres",
+    "logout": "Déconnexion"
+  },
+
+  "search": {
+    "movie": "Rechercher un film...",
+    "serie": "Rechercher une série...",
+    "no-more": "Fin des résultats",
+    "load-more": "Charger plus",
+    "outings-of-week": "Sorties de la semaine",
+    "popular": "Populaires",
+    "popular-movies-animation": "Films populaires d'animation",
+    "popular-series-animation": "Séries populaires d'animation"
+  },
+
+  "card": {
+    "add-to-list": "Ajouter à une liste",
+    "add-to-watchlist": "Ajouter à la watchlist",
+    "remove-from-watchlist": "Retirer de la watchlist",
+    "details": "Détails"
+  },
+
+  "commun": {
+    "movies": "Films",
+    "series": "Séries",
+    "modify": "Modifier",
+    "create": "Créer",
+    "add": "Ajouter",
+    "to-a-list": "à une liste :",
+    "submit": "Valider",
+    "close": "Fermer",
+    "back": "Retour",
+    "back-to-profile": "Retour au profil"
+  },
+
+  "list": {
+    "rate": "Note",
+    "on-twenty": " / 20",
+    "comment": "Commentaire",
+    "new-list": "Nouvelle liste",
+    "create-new-list": "Créer une nouvelle liste",
+    "create-list": "Créer une liste",
+    "modify-list": "Modifier la liste",
+    "delete-list": "Supprimer la liste",
+    "name-of-list": "Nom de la liste",
+    "description": "Description",
+    "no-element": "Aucun élément dans cette liste",
+    "added-to": "Ajouté à la liste",
+    "error-adding-to": "Erreur lors de l'ajout à la liste",
+    "removed-from": "Retiré de la liste",
+    "error-removing-from": "Erreur lors du retrait de la liste",
+    "added-to-watchlist": "Ajouté à la watchlist",
+    "error-adding-to-watchlist": "Erreur lors de l'ajout à la watchlist",
+    "remove-from-watchlist": "Retiré de la watchlist",
+    "error-removing-from-watchlist": "Erreur lors du retrait de la watchlist",
+    "comment-saved": "Commentaire enregistré",
+    "error-saving-comment": "Erreur lors de l'enregistrement du commentaire",
+    "list-created": "Liste créée",
+    "list-modified": "Liste modifiée",
+    "list-deleted": "Liste supprimée",
+    "error-creating-list": "Erreur lors de la création de la liste",
+    "error-modifying-list": "Erreur lors de la modification de la liste",
+    "error-deleting-list": "Erreur lors de la suppression de la liste",
+    "comment-deleted": "Ce commentaire sera supprimé dans 1 semaine si vous ne le rajoutez pas à une liste",
+    "error-deleting-comment": "Erreur lors de la suppression du commentaire",
+    "delete-success": "La liste a bien été supprimée",
+    "delete-error": "Erreur lors de la suppression de la liste",
+    "no-rating": "Pas de note",
+    "see-comment": "Voir le commentaire"
+  },
+
+  "activity": {
+    "activity-feed": "Fil d'actualité",
+    "find-users": "Trouver des utilisateurs",
+    "search-results": "Résultats de le recherche",
+    "no-activities": "Aucune activité à afficher",
+    "add-friend": "Suivre",
+    "remove-friend": "Ne plus suivre",
+    "no-user-find": "Aucun utilisateur trouvé",
+    "today-at": "Aujourd'hui à",
+    "yesterday-at": "Hier à",
+    "you": "Vous",
+    "added-item-to-list": "<0>{{username}}</0> a ajouté <2>{{itemName}}</2> à sa liste <4>{{listName}}</4>.",
+    "added-comment-for-item": "<0>{{username}}</0> a ajouté un nouveau commentaire pour <2>{{itemName}}</2> :",
+    "modified-comment-for-item": "<0>{{username}}</0> a modifié son commentaire pour <2>{{itemName}}</2> :"
+  },
+
+  "details": {
+    "realease-date": "Date de sortie",
+    "duration": "Durée",
+    "minutes": "min",
+    "budget": "Budget",
+    "income": "Revenu",
+    "first-air-date": "Première diffusion",
+    "last-air-date": "Dernière diffusion",
+    "number-of-seasons": "Nombre de saisons",
+    "number-of-episodes": "Nombre d'épisodes",
+    "time-by-episode": "Temps par épisode",
+    "next-episode": "Prochain épisode",
+    "genres": "Genres",
+    "country": "Pays",
+    "languages": "Langues",
+    "on-ten": " / 10",
+    "votes": "votes"
+  },
+
+  "profile": {
+    "hello": "Bonjour",
+    "profile-of": "Profil de",
+    "followers": "Abonnés",
+    "following": "Abonnements"
+  },
+
+  "follow": {
+    "followers": "Abonnés",
+    "followings": "Abonnements",
+    "follow-you": "Vous suit",
+    "friend-success": "Vous suivez désormais",
+    "friend-error": "Erreur lors de l'ajout de l'abonnement",
+    "unfriend-success": "Vous ne suivez plus",
+    "unfriend-error": "Erreur lors de la suppression de l'abonnement"
+  },
+
+  "settings": {
+    "password-change": "Changer de mot de passe",
+    "current-password": "Mot de passe actuel",
+    "new-password": "Nouveau mot de passe",
+    "confirm-password": "Confirmer le mot de passe",
+    "save": "Sauvegarder",
+    "dark-mode": "Mode sombre",
+    "light-mode": "Mode clair",
+    "not-same-passwords": "Les mots de passe ne sont pas identiques.",
+    "password-changed": "Mot de passe modifié",
+    "theme-choice": "Choix du thème",
+    "delete-account": "Supprimer le compte",
+    "confirm-delete": "Oui, je veux supprimer mon compte",
+    "confirm-delete-text": "Votre compte sera supprimé définitivement, et toutes les données qui lui sont associées. Êtes-vous sûr de vouloir continuer ?"
+  },
+
+  "error": {
+    "404": "404 - Page Not Found",
+    "404-text": "Désolé, la page que vous avez demandée n'existe pas.",
+    "500": "500 - Erreur Serveur",
+    "500-text": "Désolé, une erreur est survenue sur le serveur ou l'élément que vous recherchez n'existe pas.",
+    "generic": "Une erreur est survenue",
+    "generic-text": "Désolé, une erreur est survenue. Veuillez réessayer plus tard.",
+    "go-home": "Retourner à l'accueil",
+    "go-back": "Retourner en arrière",
+    "refresh": "Actualiser la page",
+    "login": "S'inscrire ou Se connecter"
+  },
+
+  "footer": {
+    "showcialtv": "ShowcialTV",
+    "all-rights": "Tous droits réservés",
+    "about": "À propos",
+    "contact": "Contact",
+    "terms": "Conditions d'utilisation",
+    "privacy": "Politique de confidentialité",
+    "tmdb": " Ce site Web utilise TMDB et les API TMDB mais n'est pas approuvé, certifié ou autrement approuvé par TMDB",
+    "any-question": "Si vous avez un quelquonque question ou un retour, n'hésitez pas à me contacter",
+    "email": "Email",
+    "my-email": "lucas.blanchard.dev@gmail.com",
+    "about-text": "Bienvenue sur ShowcialTV, un site web qui vous permet de partager vos films et séries préférés avec vos amis. Vous pouvez créer des listes de films et de séries, les noter, les commenter et les partager avec vos amis. Vous pouvez également suivre vos amis pour voir ce qu'ils regardent et ce qu'ils aiment. ShowcialTV utilise l'API TMDB pour récupérer les informations sur les films et les séries",
+    "about-text-2": "ShowcialTV a été créé par Lucas Blanchard, un développeur web passionné par les films et les séries. Il a été créé dans le but d'enrichir mon portfolio et n'est donc pas à but commercial",
+    "privacy-text": "Votre vie privée est importante pour nous. Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos informations",
+    "privacy-title-1": "Informations collectées",
+    "privacy-text-1": "ShowcialTV collecte les informations que vous fournissez lors de la création de votre compte, telles que votre nom, votre adresse e-mail et votre mot de passe. ShowcialTV collecte également les informations que vous fournissez lorsque vous créez des listes, notez des films et des séries, commentez des films et des séries, et suivez d'autres utilisateurs. ShowcialTV collecte également des informations sur les films et les séries que vous consultez, notez, commentez et ajoutez à vos listes. Tout cela dans l'unique but d'améliorer nos services. Nous utilisons des cookies pour mémoriser vos préférences de langue sur notre site. Vous avez la possibilité d'accepter ou de refuser ces cookies via le bandeau de consentement.",
+    "privacy-title-2": "Comment vos informations sont-elles utilisées",
+    "privacy-text-2": "La collecte des informations nous permet de fournir et d'améliorer nos services, de communiquer avec vous, et d'assurer la sécurité de notre plateforme",
+    "privacy-title-3": "Vos droits",
+    "privacy-text-3": "Vous avez le droit d'accéder à vos informations personnelles, de les modifier ou de les supprimer. Si vous avez des préoccupations concernant votre vie privée, veuillez nous contacter"
+  }
+}

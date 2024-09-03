@@ -1,0 +1,87 @@
+@use '../../scss/' as *;
+
+//friend search
+.user-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}
+
+.user-search-you {
+  color: var(--secondary-color);
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  padding: 10px 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.user-card:hover {
+  transform: scale(1.02);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-username {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+.add-friend-button {
+  background-color: $add-color;
+  color: var(--secondary-color);
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.remove-friend-button {
+  background-color: $delete-color;
+  color: var(--secondary-color);
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.remove-friend-button:hover {
+  background-color: $delete-color-darker;
+}
+
+.add-friend-button:hover {
+  background-color: $add-color-darker;
+}
+
+.follow-buttons-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.activity-no-found {
+  font-size: 16px;
+  color: #888;
+  text-align: center;
+  margin-top: 20px;
+}
