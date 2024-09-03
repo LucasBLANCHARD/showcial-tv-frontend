@@ -28,6 +28,9 @@ const Activities = () => {
   const [hasMoreActivities, setHasMoreActivities] = useState(true);
 
   useEffect(() => {
+    if (!token) {
+      navigate('/auth/login');
+    }
     fetchActivities();
   }, []);
 

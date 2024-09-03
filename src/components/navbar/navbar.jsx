@@ -36,13 +36,7 @@ const Navbar = () => {
   const [links, setLinks] = useState([]);
   const navigate = useNavigate();
 
-  // Ne pas afficher la navbar sur certaines pages (comme la page de connexion)
-  const hideNavbarOnPages = ['/auth, /auth/login', '/auth/signup'];
-  const shouldHideNavbar = hideNavbarOnPages.includes(location.pathname);
-
   useEffect(() => {
-    console.log('oui');
-
     if (token) {
       const decodedToken = jwtDecode(token);
       if (decodedToken.exp < Date.now() / 1000) {
@@ -56,7 +50,6 @@ const Navbar = () => {
       setLinks(navLinks(decodedToken.userId));
     } else {
       setLinks([]);
-      navigate('/auth/login');
     }
   }, [token, navigate]);
 
@@ -66,7 +59,6 @@ const Navbar = () => {
     setActive(false);
   };
 
-  if (shouldHideNavbar) return null;
   return (
     <nav className="navbar">
       <div className="navbar-title">{t('navBar.title')}</div>
