@@ -41,6 +41,8 @@ const Navbar = () => {
   const shouldHideNavbar = hideNavbarOnPages.includes(location.pathname);
 
   useEffect(() => {
+    console.log('oui');
+
     if (token) {
       const decodedToken = jwtDecode(token);
       if (decodedToken.exp < Date.now() / 1000) {
@@ -54,6 +56,7 @@ const Navbar = () => {
       setLinks(navLinks(decodedToken.userId));
     } else {
       setLinks([]);
+      navigate('/auth/login');
     }
   }, [token, navigate]);
 
