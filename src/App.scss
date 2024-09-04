@@ -145,6 +145,7 @@ textarea {
   border-radius: 4px;
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
+  background-color: var(--body-bg-lighter);
 
   &:hover {
     border-color: var(--primary-color-darker);
