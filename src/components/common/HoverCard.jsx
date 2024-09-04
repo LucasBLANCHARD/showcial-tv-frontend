@@ -23,7 +23,6 @@ const HoverCard = ({ item, index, isInWatchlist, setIsInWatchlistArray, mediaTyp
   const [isCommentModalOpen, setIsCommentModalOpen] = useState(false);
   const [selectedComment, setSelectedComment] = useState('');
   const fullScreen = useMediaQuery(StyledComponents.devices.breakpoints.down('lg'));
-  const commentLimit = 100;
   const navigate = useNavigate();
 
   const toggleModal = (item) => {
