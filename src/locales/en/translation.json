@@ -11,7 +11,11 @@
     "username": "Username",
     "signup": "Sign up",
     "signup-success": "Your account has been successfully created. You can now log in.",
-    "signup-error": "Error while creating account. Please try again."
+    "signup-error": "Error while creating account. Please try again.",
+    "welcome": "Welcome to ShowcialTV! 🎬",
+    "paragraph-1": "ShowcialTV is a personal project that demonstrates my web development skills and my passion for movies and TV series. This web application allows you to create and manage your own lists of movies and series, add custom ratings and descriptions, and follow other users to discover their recommendations.",
+    "paragraph-2": "This project not only showcases my technical skills in React, Node.js, and PostgreSQL but also demonstrates my ability to build a complete application from front-end to back-end.",
+    "paragraph-3": "Thank you for visiting ShowcialTV, and feel free to give me feedback. You can find my LinkedIn and email directly on the Contact page available via the footer!"
   },
 
   "navBar": {
@@ -189,6 +193,28 @@
     "privacy-title-2": "How Your Information Is Used",
     "privacy-text-2": "The information we collect is used to provide and improve our services, communicate with you, and ensure the security of our platform",
     "privacy-title-3": "Your Rights",
-    "privacy-text-3": "You have the right to access, modify, or delete your personal information. If you have any concerns about your privacy, please contact us"
+    "privacy-text-3": "You have the right to access, modify, or delete your personal information. If you have any concerns about your privacy, please contact us",
+    "linkedin": "LinkedIn",
+    "my-linkedin": "Lucas BLANCHARD"
+  },
+
+  "about": {
+    "introduction-title": "Introduction",
+    "introduction-text": "ShowcialTV is a personal project aimed at demonstrating my web development skills.",
+    "technologies-title": "Technologies Used",
+    "technologies-text": "This project was built using the following technologies:",
+    "technology-frontend": "Frontend: React 18.2, SCSS 1.71",
+    "technology-backend": "Backend: Node.js 20.11, Express 4.18, Prisma 5.10",
+    "technology-database": "Database: PostgreSQL 16.2",
+    "technology-tools": "Tools: Git 2.43, GitHub, Postman, PGAdmin, TablePlus",
+    "technology-deployment": "Deployment: Netlify, Heroku",
+    "process-title": "Development Process",
+    "process-text": "The development of ShowcialTV followed a structured process:",
+    "process-step1": "Step 1: Initial Design and Planning",
+    "process-step2": "Step 2: Project setup, database creation",
+    "process-step3": "Step 3: Internationalization (available in English and French), dark/light theme, and integration of the TMDB API",
+    "process-step4": "Step 4: Backend Development",
+    "process-step5": "Step 5: Frontend Development",
+    "process-step6": "Step 6: Deployment"
   }
 }

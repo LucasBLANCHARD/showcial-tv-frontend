@@ -1,23 +1,25 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import './index.scss';
-import { useTranslation } from 'react-i18next';
 import Login from './Login';
 import Signup from './Signup';
+import { t } from 'i18next';
 
 const Auth = () => {
   let location = useLocation();
-  const { t } = useTranslation();
   const loginRef = useRef(null);
   const registerRef = useRef(null);
   const [indicatorStyle, setIndicatorStyle] = useState({});
+  const [isSignup, setIsSignup] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       // Mettre à jour l'indicateur pour l'onglet actif lors du redimensionnement de la fenêtre
       if (location.pathname.includes('/login')) {
+        setIsSignup(false);
         updateIndicator(loginRef);
       } else if (location.pathname.includes('/signup')) {
+        setIsSignup(true);
         updateIndicator(registerRef);
       }
     };
@@ -79,6 +81,14 @@ const Auth = () => {
           </NavLink>
         </div>
         {showComponentBasedOnPath()}
+        {isSignup && (
+          <div className="signup-text-presentation">
+            <p>{t('auth.welcome')}</p>
+            <p>{t('auth.paragraph-1')}</p>
+            <p>{t('auth.paragraph-2')}</p>
+            <p>{t('auth.paragraph-3')}</p>
+          </div>
+        )}
       </div>
     </main>
   );
