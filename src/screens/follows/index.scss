@@ -1,8 +1,41 @@
 @use '../../scss/' as *;
 
-.follow-title {
-  font-size: 24px;
-  font-weight: bold;
-  color: var(--primary-color);
-  padding: 20px;
+.follow-header {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+  .follow-back {
+    margin-right: auto; // This pushes the button to the left
+  }
+
+  .follow-name-container {
+    flex: 1;
+    display: flex;
+    justify-content: center; // Centers the name
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); // Centers the name even if it grows larger
+    text-align: center;
+    z-index: 1; // Ensures the text is above other elements
+
+    @include mobile {
+      position: relative;
+      left: 0;
+      transform: none;
+    }
+
+    .follow-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-top: 16px;
+    }
+  }
+
+  @include mobile {
+    flex-direction: column;
+  }
 }
