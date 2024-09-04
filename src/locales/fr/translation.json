@@ -15,7 +15,8 @@
     "welcome": "Bienvenue sur ShowcialTV ! 🎬",
     "paragraph-1": "ShowcialTV est une réalisation personnelle qui démontre mes compétences en développement web et mon amour pour le cinéma et les séries. Ce projet est une application web où vous pouvez créer et gérer vos propres listes de films et séries, ajouter des notes et des descriptions personnalisées, et suivre d'autres utilisateurs pour découvrir leurs recommandations.",
     "paragraph-2": "Ce projet est non seulement une vitrine de mes compétences techniques en React, Node.js, et PostgreSQL, mais aussi une démonstration de ma capacité à créer une application complète du front-end au back-end.",
-    "paragraph-3": "Merci de visiter ShowcialTV et n'hésitez pas me faire des retours, vous trouverez mon LinkedIn et mon mail directement sur la page Contact disponible via le footer !"
+    "paragraph-3": "Merci de visiter ShowcialTV et n'hésitez pas me faire des retours, vous trouverez mon LinkedIn et mon mail directement sur la page Contact disponible via le footer !",
+    "disclaimer": "Veuillez noter : Cette application n'est pas encore optimisée pour les appareils mobiles."
   },
 
   "navBar": {

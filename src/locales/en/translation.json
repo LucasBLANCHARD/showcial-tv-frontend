@@ -15,7 +15,8 @@
     "welcome": "Welcome to ShowcialTV! 🎬",
     "paragraph-1": "ShowcialTV is a personal project that demonstrates my web development skills and my passion for movies and TV series. This web application allows you to create and manage your own lists of movies and series, add custom ratings and descriptions, and follow other users to discover their recommendations.",
     "paragraph-2": "This project not only showcases my technical skills in React, Node.js, and PostgreSQL but also demonstrates my ability to build a complete application from front-end to back-end.",
-    "paragraph-3": "Thank you for visiting ShowcialTV, and feel free to give me feedback. You can find my LinkedIn and email directly on the Contact page available via the footer!"
+    "paragraph-3": "Thank you for visiting ShowcialTV, and feel free to give me feedback. You can find my LinkedIn and email directly on the Contact page available via the footer!",
+    "disclaimer": "Please note: This application is not yet optimized for mobile devices."
   },
 
   "navBar": {
