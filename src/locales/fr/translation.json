@@ -198,5 +198,25 @@
     "privacy-text-3": "Vous avez le droit d'accéder à vos informations personnelles, de les modifier ou de les supprimer. Si vous avez des préoccupations concernant votre vie privée, veuillez nous contacter",
     "linkedin": "LinkedIn",
     "my-linkedin": "Lucas BLANCHARD"
+  },
+
+  "about": {
+    "introduction-title": "Introduction",
+    "introduction-text": "ShowcialTV est un projet personnel visant à démontrer mes compétences en développement web.",
+    "technologies-title": "Technologies Utilisées",
+    "technologies-text": "Ce projet a été réalisé en utilisant les technologies suivantes :",
+    "technology-frontend": "Frontend : React 18.2, SCSS 1.71",
+    "technology-backend": "Backend : Node.js 20.11, Express 4.18, Prisma 5.10",
+    "technology-database": "Base de données : PostgreSQL 16.2",
+    "technology-tools": "Outils : Git 2.43, GitHub, Postman, PGAdmin, TablePlus",
+    "technology-deployment": "Déploiement : Netlify, Heroku",
+    "process-title": "Processus de Développement",
+    "process-text": "Le développement de ShowcialTV a suivi un processus structuré :",
+    "process-step1": "Étape 1 : Conception et Planification Initiales",
+    "process-step2": "Étape 2 : Mise en place du projet, création de la base de données",
+    "process-step3": "Étape 3 : Internationalisation (disponible en anglais et en français), thème dark/light et intégration de l'API TMDB",
+    "process-step4": "Étape 4 : Développement Backend",
+    "process-step5": "Étape 5 : Développement Frontend",
+    "process-step6": "Étape 6 : Déploiement"
   }
 }
