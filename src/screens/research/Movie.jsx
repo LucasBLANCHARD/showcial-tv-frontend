@@ -31,7 +31,7 @@ const Movie = () => {
 
   return (
     <div className="flex-column">
-      <SearchComponent searchFunction={searchMovies} placeholder={t('search.movie')} onSearchChange={handleSearchChange} mediaType={mediaType} />
+      <SearchComponent searchFunction={searchMovies} placeholder={t('search.movie')} onSearchChange={handleSearchChange} mediaType={mediaType} isSearching={isSearching} />
       {!isSearching && (
         <>
           <div>

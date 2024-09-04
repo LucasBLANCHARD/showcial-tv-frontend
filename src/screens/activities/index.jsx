@@ -82,7 +82,7 @@ const Activities = () => {
       if (newQuery.length > 0) {
         try {
           const response = await getUsersByUsername(token, newQuery, limitUsers, 0);
-          const newUsers = response.data.users;
+          const newUsers = response.users;
 
           setUsersFind(newUsers);
           setHasMoreUsers(newUsers.length === limitUsers);

@@ -31,7 +31,7 @@ const Serie = () => {
 
   return (
     <div className="flex-column">
-      <SearchComponent searchFunction={searchSeries} placeholder={t('search.serie')} mediaType={mediaType} onSearchChange={handleSearchChange} />
+      <SearchComponent searchFunction={searchSeries} placeholder={t('search.serie')} mediaType={mediaType} onSearchChange={handleSearchChange} isSearching={isSearching} />
       {!isSearching && (
         <>
           <div>
