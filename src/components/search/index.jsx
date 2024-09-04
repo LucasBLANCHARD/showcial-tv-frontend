@@ -10,7 +10,7 @@ import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import HoverCard from '../common/HoverCard';
 import SearchBar from '../common/SearchBar';
 
-const SearchComponent = ({ searchFunction, placeholder, onSearchChange, mediaType }) => {
+const SearchComponent = ({ searchFunction, placeholder, onSearchChange, mediaType, isSearching }) => {
   const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState([]);
@@ -90,6 +90,8 @@ const SearchComponent = ({ searchFunction, placeholder, onSearchChange, mediaTyp
             <Spinner />
           </div>
         )}
+        {/* Si aucun résultat n'est trouvé, afficher un message */}
+        {results.length === 0 && !loading && isSearching && <div className="activity-no-found">{t('search.no-found')}</div>}
         {results.map((item, index) => (
           <div key={`${item.id}_${index}`} className="card">
             <div className="image-container">

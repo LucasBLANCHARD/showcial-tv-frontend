@@ -147,7 +147,7 @@ export const removeFollow = async (token, userFollowingId) => {
 
 //get users by username
 export const getUsersByUsername = async (token, username, limit, offset) => {
-  return await axios.get(`${API_URL}/user/${username}`, {
+  const response = await axios.get(`${API_URL}/user/${username}`, {
     headers: {
       Authorization: `Bearer ${token}`
     },
@@ -156,6 +156,8 @@ export const getUsersByUsername = async (token, username, limit, offset) => {
       offset
     }
   });
+
+  return response.data;
 };
 
 //get activities
