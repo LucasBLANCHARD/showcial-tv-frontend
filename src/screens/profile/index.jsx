@@ -26,8 +26,8 @@ const Profile = () => {
   const [selectedList, setSelectedList] = useState(null);
   const [isEditMode, setIsEditMode] = useState(false);
   const [existingListData, setExistingListData] = useState(null);
-  const [isFollowedUserConnected, setIsFollowedUserConnected] = useState(false);
-  const [isFollowingUserConnected, setIsFollowingUserConnected] = useState(false);
+  const [isFollowedUserConnected, setIsFollowedUserConnected] = useState(null);
+  const [isFollowingUserConnected, setIsFollowingUserConnected] = useState(null);
   const navigate = useNavigate();
 
   const isOnListDetailsPage = location.pathname.includes('/list/');
@@ -46,8 +46,8 @@ const Profile = () => {
         } else {
           const followingProfile = await getUserProfile(token, userId);
           setProfile(followingProfile.data.user);
-          setIsFollowedUserConnected(followingProfile.data.isFollowedUserConnected);
-          setIsFollowingUserConnected(followingProfile.data.isFollowingUserConnected);
+          setIsFollowedUserConnected(followingProfile.data.isFollowingUserConnected);
+          setIsFollowingUserConnected(followingProfile.data.isFollowedUserConnected);
           setListsWithoutWatchlist(followingProfile.data.lists.filter((list) => list.isDefault === false));
           setWatchlist(followingProfile.data.lists.find((list) => list.isDefault === true));
           setIsConnectedUser(false);
