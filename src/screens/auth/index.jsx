@@ -87,7 +87,6 @@ const Auth = () => {
             <p>{t('auth.paragraph-1')}</p>
             <p>{t('auth.paragraph-2')}</p>
             <p>{t('auth.paragraph-3')}</p>
-            <p>{t('auth.disclaimer')}</p>
           </div>
         )}
       </div>
