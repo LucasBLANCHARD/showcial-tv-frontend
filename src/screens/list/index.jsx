@@ -110,9 +110,7 @@ const ListDetails = () => {
                 <div key={item.id} className="card" onClick={() => handleCardClick(index)}>
                   {/* Rating affiché en haut à droite pour chaque item */}
                   <div className="rating-display">{item.comment && item.comment.rating ? `${item.comment.rating} ${t('list.on-twenty')}` : `? ${t('list.on-twenty')}`}</div>
-                  <div className="image-container">
-                    <LazyImage src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title ?? item.name} />
-                  </div>
+                  <div className="image-container">{item.poster_path ? <LazyImage src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title ?? item.name} /> : null}</div>
                   <div className="card-bottom">
                     <div className="card-title">{item.title ?? item.name}</div>
                   </div>

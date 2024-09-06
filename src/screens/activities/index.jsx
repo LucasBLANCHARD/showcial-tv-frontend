@@ -180,7 +180,7 @@ const Activities = () => {
       case 'COMMENT_UPDATE':
         return (
           <>
-            <LazyImage src={`https://image.tmdb.org/t/p/w185${activity.commentDetails.poster_path}`} alt={activity.commentDetails.itemName} />
+            {activity.commentDetails && activity.commentDetails.poster_path ? <LazyImage src={`https://image.tmdb.org/t/p/w185${activity.commentDetails.poster_path}`} alt={activity.commentDetails.itemName} /> : null}
             <div className="activity-content-container">
               <div className="activity-date">{dateActivity}</div>
               <div className="activity-comment">
@@ -235,7 +235,7 @@ const Activities = () => {
       case 'COMMENT_CREATED':
         return (
           <>
-            <LazyImage src={`https://image.tmdb.org/t/p/w185${activity.commentDetails.poster_path}`} alt={activity.commentDetails.itemName} />
+            {activity.commentDetails && activity.commentDetails.poster_path ? <LazyImage src={`https://image.tmdb.org/t/p/w185${activity.commentDetails.poster_path}`} alt={activity.commentDetails.itemName} /> : null}
             <div className="activity-content-container">
               <div className="activity-date">{dateActivity}</div>
 
