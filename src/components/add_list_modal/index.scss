@@ -11,6 +11,17 @@
   overflow: hidden;
 }
 
+.add-list-dialog-header {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.add-list-close {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
 .modal-buttons {
   display: flex;
   justify-content: space-between;
