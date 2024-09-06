@@ -149,7 +149,10 @@ const theme = createTheme({
     MuiDialogContentText: {
       styleOverrides: {
         root: {
-          color: 'var(--primary-color)'
+          color: 'var(--primary-color)',
+          whiteSpace: 'pre-wrap',
+          wordWrap: 'break-word',
+          overflowWrap: 'break-word'
         }
       }
     }

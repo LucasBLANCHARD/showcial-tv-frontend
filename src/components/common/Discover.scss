@@ -17,11 +17,6 @@
     width: 150px;
     height: 265px;
   }
-
-  @include mobile {
-    width: 90px;
-    height: 165px;
-  }
 }
 
 .image-container img {
@@ -32,6 +27,10 @@
 
 .react-multi-carousel-list {
   height: 400px;
+
+  @include tablet {
+    height: 300px;
+  }
 }
 
 .react-multi-carousel-item {
@@ -39,6 +38,7 @@
   margin: 30px;
 
   @include tablet {
+    width: 150px !important;
     margin: 5px;
   }
 }

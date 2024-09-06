@@ -35,4 +35,9 @@
   align-items: center;
   margin-right: 15px;
   color: var(--primary-color);
+
+  white-space: pre-wrap; /* Respecte les tabulations et les retours à la ligne */
+  word-wrap: break-word; /* Permet de passer à la ligne quand une ligne est trop longue */
+  overflow-wrap: break-word; /* Compatibilité supplémentaire pour éviter le débordement */
+  max-width: 100%; /* Limite la largeur du commentaire au conteneur */
 }

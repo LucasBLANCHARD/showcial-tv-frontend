@@ -9,7 +9,7 @@ import NewListModal from '../../components/common/NewListModal.jsx';
 import { jwtDecode } from 'jwt-decode';
 import { generateSlug } from '../../utils/slug.jsx';
 import { t } from 'i18next';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Profile = () => {
