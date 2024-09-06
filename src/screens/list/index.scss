@@ -99,3 +99,25 @@
   color: var(--primary-color);
   margin-top: 50px;
 }
+
+@include mobile {
+  .list-header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 15px 15px 15px;
+
+    .list-name-container {
+      display: flex;
+      justify-content: center; // Centers the name
+      position: relative;
+      text-align: center;
+
+      .list-name {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+    }
+  }
+}
