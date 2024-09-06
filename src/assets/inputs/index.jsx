@@ -108,9 +108,9 @@ const theme = createTheme({
     MuiCheckbox: {
       styleOverrides: {
         root: {
-          color: 'var(--primary-color)', // Couleur par défaut
+          color: 'var(--primary-color)',
           '&.Mui-checked': {
-            color: 'var(--primary-color)' // Couleur lorsqu'il est coché
+            color: 'var(--primary-color)'
           }
         }
       }
@@ -118,7 +118,7 @@ const theme = createTheme({
     MuiFormControlLabel: {
       styleOverrides: {
         label: {
-          color: 'var(--primary-color)' // Couleur du texte du label
+          color: 'var(--primary-color)'
         }
       }
     },
@@ -126,6 +126,13 @@ const theme = createTheme({
       styleOverrides: {
         paper: {
           background: 'var(--body-bg-lighter)'
+        }
+      },
+      defaultProps: {
+        BackdropProps: {
+          style: {
+            opacity: 0.2
+          }
         }
       }
     },

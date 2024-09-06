@@ -1,6 +1,6 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide, ThemeProvider, useMediaQuery } from '@mui/material';
 import { jwtDecode } from 'jwt-decode';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { addItemToList, getLists, removeItemFromList } from '../../api';
 import AddListModal from '../add_list_modal';
 import './HoverCard.scss';
@@ -14,7 +14,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const HoverCard = ({ item, index, isInWatchlist, setIsInWatchlistArray, mediaType, isForListDetails, updateNote }) => {
+const HoverCard = ({ item, index, isInWatchlist, setIsInWatchlistArray, mediaType, isForListDetails, updateNote, isClicked }) => {
   const { userId } = useParams('userId');
   const token = localStorage.getItem('token');
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -118,8 +118,8 @@ const HoverCard = ({ item, index, isInWatchlist, setIsInWatchlistArray, mediaTyp
     <div>
       {isModalOpen && <AddListModal isOpen={isModalOpen} onClose={toggleModal} item={itemModal} decodedToken={decodedToken} mediaType={mediaType} onRatingUpdate={handleRatingUpdate} onCommentUpdate={handleCommentUpdate} />}
       {!isForListDetails ? (
-        <div className="hover-content">
-          <div className="card-title">{item.title ?? item.name}</div>
+        <div className={`hover-content ${isClicked ? 'clicked' : ''}`}>
+          <div className="card-hover-title">{item.title ?? item.name}</div>
           <Button variant="outlined" className="primary-outlined-button" onClick={() => toggleModal(item)}>
             {t('card.add-to-list')}
           </Button>
@@ -139,8 +139,8 @@ const HoverCard = ({ item, index, isInWatchlist, setIsInWatchlistArray, mediaTyp
           </Button>
         </div>
       ) : (
-        <div className="hover-content">
-          {item.comment && item.comment.content ? item.comment.content : 'Aucun commentaire'}
+        <div className={`hover-content ${isClicked ? 'clicked' : ''}`}>
+          <div className="hover-comment">{item.comment && item.comment.content ? item.comment.content : 'Aucun commentaire'}</div>
           {!userId ? (
             <Button variant="outlined" className="primary-outlined-button" onClick={() => toggleModal(item)}>
               {t('commun.modify')}

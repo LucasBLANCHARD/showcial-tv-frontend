@@ -331,22 +331,24 @@ const Activities = () => {
       {!activities ? (
         <Loader />
       ) : (
-        <InfiniteScroll dataLength={activities.length} next={loadMoreActivities} hasMore={hasMoreActivities} initialScrollY={true} style={{ overflow: 'hidden' }}>
-          {activities.length > 0 ? (
-            activities.map((activity, index) => (
-              <React.Fragment key={activity.id}>
-                <div className="activities-container">
-                  <h2>{activity.title}</h2>
-                  <div className="activity-container">{renderActivityMessage(activity)}</div>
-                </div>
-                {/* Ajout de la barre de séparation */}
-                {index < activities.length - 1 && <hr className="activity-separator" />}
-              </React.Fragment>
-            ))
-          ) : (
-            <p className="activity-no-found">{t('activity.no-activities')}.</p>
-          )}
-        </InfiniteScroll>
+        !isSearching && (
+          <InfiniteScroll dataLength={activities.length} next={loadMoreActivities} hasMore={hasMoreActivities} initialScrollY={true} style={{ overflow: 'hidden' }}>
+            {activities.length > 0 ? (
+              activities.map((activity, index) => (
+                <React.Fragment key={activity.id}>
+                  <div className="activities-container">
+                    <h2>{activity.title}</h2>
+                    <div className="activity-container">{renderActivityMessage(activity)}</div>
+                  </div>
+                  {/* Ajout de la barre de séparation */}
+                  {index < activities.length - 1 && <hr className="activity-separator" />}
+                </React.Fragment>
+              ))
+            ) : (
+              <p className="activity-no-found">{t('activity.no-activities')}.</p>
+            )}
+          </InfiniteScroll>
+        )
       )}
       {
         // Si la recherche est en cours
