@@ -112,6 +112,8 @@
       justify-content: center; // Centers the name
       position: relative;
       text-align: center;
+      width: 100%;
+      align-items: center;
 
       .list-name {
         font-size: 1.5rem;
