@@ -22,6 +22,10 @@
 
 .discover-search {
   width: 60% !important;
+
+  @include mobile {
+    width: 100% !important;
+  }
 }
 
 //cards
@@ -54,24 +58,6 @@
     width: 90px;
     height: 165px;
   }
-}
-
-.card img {
-  height: 75%;
-  border-radius: 8px 8px 0 0;
-}
-
-.card-title {
-  font-weight: bold;
-  text-align: center;
-  color: var(--primary-color);
-}
-
-.card-bottom {
-  height: 25%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 //loadMore

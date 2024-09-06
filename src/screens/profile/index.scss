@@ -224,3 +224,17 @@
     border-radius: 0 0 4px 4px;
   }
 }
+
+@include mobile {
+  .profile-to {
+    display: flex;
+    flex-direction: column-reverse;
+    .center-section {
+      margin-top: 15px;
+    }
+    .left-section {
+      width: 100%;
+      justify-content: flex-start;
+    }
+  }
+}

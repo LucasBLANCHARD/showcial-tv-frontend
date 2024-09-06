@@ -164,3 +164,31 @@ textarea {
     opacity: 0.5;
   }
 }
+
+//cards
+.card img {
+  height: 75%;
+  border-radius: 8px 8px 0 0;
+}
+
+.card-title {
+  font-weight: bold;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.card-bottom {
+  height: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include tablet {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 2px;
+  }
+}

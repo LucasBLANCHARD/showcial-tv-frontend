@@ -19,6 +19,7 @@ const SearchComponent = ({ searchFunction, placeholder, onSearchChange, mediaTyp
   const [hasMore, setHasMore] = useState(true);
   const [isInWatchlistArray, setIsInWatchlistArray] = useState([]);
   const token = localStorage.getItem('token');
+  const [activeCardIndex, setActiveCardIndex] = useState(null); // Index de la carte active
 
   const debouncedSearch = useCallback(
     _.debounce(async (query) => {
@@ -79,6 +80,16 @@ const SearchComponent = ({ searchFunction, placeholder, onSearchChange, mediaTyp
     fetchIsInWatchlist();
   }, [results]);
 
+  const handleCardClick = (index) => {
+    if (activeCardIndex === index) {
+      // Si on clique sur la même carte, on la ferme
+      setActiveCardIndex(null);
+    } else {
+      // Sinon, on active la carte cliquée
+      setActiveCardIndex(index);
+    }
+  };
+
   return (
     <div className="research-container">
       <div className="discover-search">
@@ -93,7 +104,7 @@ const SearchComponent = ({ searchFunction, placeholder, onSearchChange, mediaTyp
         {/* Si aucun résultat n'est trouvé, afficher un message */}
         {results.length === 0 && !loading && isSearching && <div className="activity-no-found">{t('search.no-found')}</div>}
         {results.map((item, index) => (
-          <div key={`${item.id}_${index}`} className="card">
+          <div key={`${item.id}_${index}`} className="card" onClick={() => handleCardClick(index)}>
             <div className="image-container">
               <LazyImage src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title ?? item.name} />
               {isInWatchlistArray[index] && <AccessTimeFilledIcon className="checkmark" />}
@@ -101,7 +112,7 @@ const SearchComponent = ({ searchFunction, placeholder, onSearchChange, mediaTyp
             <div className="card-bottom">
               <div className="card-title">{item.title ?? item.name}</div>
             </div>
-            <HoverCard item={item} index={index} isInWatchlist={isInWatchlistArray[index]} setIsInWatchlistArray={setIsInWatchlistArray} mediaType={mediaType} />
+            <HoverCard item={item} index={index} isInWatchlist={isInWatchlistArray[index]} setIsInWatchlistArray={setIsInWatchlistArray} mediaType={mediaType} isClicked={activeCardIndex === index} />
           </div>
         ))}
       </div>

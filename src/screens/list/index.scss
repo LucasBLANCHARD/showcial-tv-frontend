@@ -1,7 +1,7 @@
 @use '../../scss/' as *;
 
 .list-header {
-  padding: 15px;
+  padding: 0 0 15px 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,6 +20,7 @@
     transform: translateX(-50%); // Centers the name even if it grows larger
     text-align: center;
     z-index: 1; // Ensures the text is above other elements
+    margin-top: 16px;
 
     .list-name {
       font-size: 1.5rem;
@@ -75,29 +76,6 @@
     width: 150px;
     height: 265px;
   }
-
-  @include mobile {
-    width: 90px;
-    height: 165px;
-  }
-}
-
-.card img {
-  height: 75%;
-  border-radius: 8px 8px 0 0;
-}
-
-.card-title {
-  font-weight: bold;
-  text-align: center;
-  color: var(--primary-color);
-}
-
-.card-bottom {
-  height: 25%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .image-container {

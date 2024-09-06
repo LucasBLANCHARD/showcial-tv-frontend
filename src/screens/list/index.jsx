@@ -19,6 +19,7 @@ const ListDetails = () => {
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const [activeCardIndex, setActiveCardIndex] = useState(null); // Index de la carte active
 
   const fetchListDetails = useCallback(async () => {
     try {
@@ -83,6 +84,16 @@ const ListDetails = () => {
     }
   };
 
+  const handleCardClick = (index) => {
+    if (activeCardIndex === index) {
+      // Si on clique sur la même carte, on la ferme
+      setActiveCardIndex(null);
+    } else {
+      // Sinon, on active la carte cliquée
+      setActiveCardIndex(index);
+    }
+  };
+
   return (
     <>
       <div className="list-header">
@@ -96,7 +107,7 @@ const ListDetails = () => {
           <div className="list-details">
             <div className="list-items">
               {items.map((item, index) => (
-                <div key={item.id} className="card">
+                <div key={item.id} className="card" onClick={() => handleCardClick(index)}>
                   {/* Rating affiché en haut à droite pour chaque item */}
                   <div className="rating-display">{item.comment && item.comment.rating ? `${item.comment.rating} ${t('list.on-twenty')}` : `? ${t('list.on-twenty')}`}</div>
                   <div className="image-container">
@@ -105,7 +116,7 @@ const ListDetails = () => {
                   <div className="card-bottom">
                     <div className="card-title">{item.title ?? item.name}</div>
                   </div>
-                  <HoverCard item={item} index={index} mediaType={item.isMovie} isForListDetails={true} updateNote={updateNote} />
+                  <HoverCard item={item} index={index} mediaType={item.isMovie} isForListDetails={true} updateNote={updateNote} isClicked={activeCardIndex === index} />
                 </div>
               ))}
             </div>

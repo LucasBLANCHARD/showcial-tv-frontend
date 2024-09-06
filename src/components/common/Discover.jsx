@@ -12,6 +12,7 @@ const Discover = ({ content, mediaType }) => {
   const [items, setItems] = useState([]);
   const [isInWatchlistArray, setIsInWatchlistArray] = useState([]);
   const token = localStorage.getItem('token');
+  const [activeCardIndex, setActiveCardIndex] = useState(null); // Index de la carte active
 
   useEffect(() => {
     const fetchitems = async () => {
@@ -62,12 +63,22 @@ const Discover = ({ content, mediaType }) => {
     return;
   };
 
+  const handleCardClick = (index) => {
+    if (activeCardIndex === index) {
+      // Si on clique sur la même carte, on la ferme
+      setActiveCardIndex(null);
+    } else {
+      // Sinon, on active la carte cliquée
+      setActiveCardIndex(index);
+    }
+  };
+
   const itemsCarousel = items.map((item, index) => {
     // Appelez la fonction isAlreadyInWatchlist pour obtenir la valeur de la prop disabled
     const isInWatchlist = isInWatchlistArray[index];
     return (
       <div className="item-card" key={`${item.id}_${index}`}>
-        <div className="card-carousel">
+        <div className="card-carousel" onClick={() => handleCardClick(index)}>
           <div className="image-container">
             <LazyImage src={`https://image.tmdb.org/t/p/w185${item.poster_path}`} alt={item.title} />
             {isInWatchlist && <AccessTimeFilledIcon className="checkmark" />}
@@ -76,7 +87,7 @@ const Discover = ({ content, mediaType }) => {
             <div className="card-title">{item.title ?? item.name}</div>
           </div>
         </div>
-        <HoverCard item={item} index={index} isInWatchlist={isInWatchlist} setIsInWatchlistArray={setIsInWatchlistArray} mediaType={mediaType} updateNote={updateNote} />
+        <HoverCard item={item} index={index} isInWatchlist={isInWatchlist} setIsInWatchlistArray={setIsInWatchlistArray} mediaType={mediaType} updateNote={updateNote} isClicked={activeCardIndex === index} />
       </div>
     );
   });

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { getCommentById, getItemById, getListById, getActivities, getUsersByUsername } from '../../api';
+import { getCommentById, getItemById, getActivities, getUsersByUsername } from '../../api';
 import './index.scss';
 import LazyImage from '../../components/common/LazyImage';
 import { formatActivityDate } from '../../utils/date';
@@ -10,6 +10,14 @@ import UserList from '../../components/common/UserList';
 import { useNavigate } from 'react-router-dom';
 import { Trans } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import Loader from '../../components/common/Loader';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide, useMediaQuery } from '@mui/material';
+import { ThemeProvider } from '@emotion/react';
+import StyledComponents from '../../assets/inputs';
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 const Activities = () => {
   const token = localStorage.getItem('token');
@@ -21,10 +29,13 @@ const Activities = () => {
   const [hasMoreUsers, setHasMoreUsers] = useState(true);
   const [queryUsers, setQuery] = useState('');
   const navigate = useNavigate();
+  const [isCommentModalOpen, setIsCommentModalOpen] = useState(false);
+  const [selectedComment, setSelectedComment] = useState('');
+  const fullScreen = useMediaQuery(StyledComponents.devices.breakpoints.down('lg'));
 
   // Pagination for activities
   const [page, setPage] = useState(0);
-  const [limitActivities] = useState(20);
+  const [limitActivities] = useState(4);
   const [hasMoreActivities, setHasMoreActivities] = useState(true);
 
   useEffect(() => {
@@ -141,14 +152,37 @@ const Activities = () => {
     }
   };
 
+  const toggleCommentModal = (comment) => {
+    setSelectedComment(comment);
+    setIsCommentModalOpen(!isCommentModalOpen);
+  };
+
+  // Fonction pour convertir les retours à la ligne et les tabulations en HTML
+  const formatComment = (comment) => {
+    if (!comment) return '';
+
+    // Remplacer les tabulations par des espaces non sécables (4 espaces pour chaque tabulation)
+    let formatted = comment.replace(/\t/g, '    ');
+
+    // Remplacer les retours à la ligne par des balises <br>
+    formatted = formatted.replace(/\n/g, '<br />');
+
+    return formatted;
+  };
+
+  const handleCommentClose = () => {
+    setIsCommentModalOpen(false);
+  };
+
   const renderActivityMessage = (activity) => {
     const dateActivity = formatActivityDate(activity.createdAt, language);
     switch (activity.type) {
       case 'COMMENT_UPDATE':
         return (
-          <div className="activity-container">
+          <>
             <LazyImage src={`https://image.tmdb.org/t/p/w185${activity.commentDetails.poster_path}`} alt={activity.commentDetails.itemName} />
             <div className="activity-content-container">
+              <div className="activity-date">{dateActivity}</div>
               <div className="activity-comment">
                 <p>
                   <Trans i18nKey="activity.modified-comment-for-item">
@@ -175,16 +209,36 @@ const Activities = () => {
                   </h3>
                 </div>
               )}
+              <Button variant="outlined" onClick={() => toggleCommentModal(activity.commentDetails.content)} className="primary-outlined-button activity-see-button">
+                {t('list.see-comment')}
+              </Button>
             </div>
-            <div className="activity-date">{dateActivity}</div>
-          </div>
+            <ThemeProvider theme={StyledComponents.theme}>
+              <Dialog fullWidth maxWidth="md" fullScreen={fullScreen} open={isCommentModalOpen} TransitionComponent={Transition} keepMounted onClose={handleCommentClose}>
+                <div className="flex-sb">
+                  <DialogTitle>{t('list.comment')} : </DialogTitle>
+                  <div className="dialog-comment">{activity.commentDetails && activity.commentDetails.rating ? activity.commentDetails.rating + ' ' + t('list.on-twenty') : t('list.no-rating')}</div>
+                </div>
+                <DialogContent>
+                  <DialogContentText dangerouslySetInnerHTML={{ __html: formatComment(selectedComment) }}></DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                  <StyledComponents.CssButtonContained variant="contained" onClick={handleCommentClose}>
+                    {t('commun.close')}
+                  </StyledComponents.CssButtonContained>
+                </DialogActions>
+              </Dialog>
+            </ThemeProvider>
+          </>
         );
 
       case 'COMMENT_CREATED':
         return (
-          <div className="activity-container">
+          <>
             <LazyImage src={`https://image.tmdb.org/t/p/w185${activity.commentDetails.poster_path}`} alt={activity.commentDetails.itemName} />
             <div className="activity-content-container">
+              <div className="activity-date">{dateActivity}</div>
+
               <div className="activity-comment">
                 <p>
                   <Trans i18nKey="activity.added-comment-for-item">
@@ -200,7 +254,7 @@ const Activities = () => {
                 </p>
                 {activity.commentDetails && (
                   <div>
-                    <h3>{activity.commentDetails.content}</h3>
+                    <h3 className="activity-comment-text">{activity.commentDetails.content}</h3>
                   </div>
                 )}
               </div>
@@ -211,35 +265,55 @@ const Activities = () => {
                   </h3>
                 </div>
               )}
+              <Button variant="outlined" onClick={() => toggleCommentModal(activity.commentDetails.content)} className="primary-outlined-button activity-see-button">
+                {t('list.see-comment')}
+              </Button>
             </div>
-            <div className="activity-date">{dateActivity}</div>
-          </div>
+            <ThemeProvider theme={StyledComponents.theme}>
+              <Dialog fullWidth maxWidth="md" fullScreen={fullScreen} open={isCommentModalOpen} TransitionComponent={Transition} keepMounted onClose={handleCommentClose}>
+                <div className="flex-sb">
+                  <DialogTitle>{t('list.comment')} : </DialogTitle>
+                  <div className="dialog-comment">{activity.commentDetails && activity.commentDetails.rating ? activity.commentDetails.rating + ' ' + t('list.on-twenty') : t('list.no-rating')}</div>
+                </div>
+                <DialogContent>
+                  <DialogContentText dangerouslySetInnerHTML={{ __html: formatComment(selectedComment) }}></DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                  <StyledComponents.CssButtonContained variant="contained" onClick={handleCommentClose}>
+                    {t('commun.close')}
+                  </StyledComponents.CssButtonContained>
+                </DialogActions>
+              </Dialog>
+            </ThemeProvider>
+          </>
         );
 
       case 'ITEM_ADDED':
         return (
-          <div className="activity-container">
+          <>
             {activity.itemDetails.poster_path ? <LazyImage src={`https://image.tmdb.org/t/p/w185${activity.itemDetails.poster_path}`} alt={activity.itemDetails.name} /> : null}
             <div className="activity-content-container">
-              <p>
-                <Trans i18nKey="activity.added-item-to-list">
-                  <span className="cliquable-redirect" onClick={redirectTo(activity, 'profile')}>
-                    {{ username: activity.user.username }}
-                  </span>
-                  {' added '}
-                  <span className="cliquable-redirect" onClick={redirectTo(activity, 'details')}>
-                    {{ itemName: activity.itemDetails.name }}
-                  </span>
-                  {' to their list '}
-                  <span className="cliquable-redirect" onClick={redirectTo(activity, 'list')}>
-                    {{ listName: activity.itemDetails.list.name }}
-                  </span>
-                  {' .'}
-                </Trans>
-              </p>
+              <div className="activity-date">{dateActivity}</div>
+              <div className="activity-comment">
+                <p>
+                  <Trans i18nKey="activity.added-item-to-list">
+                    <span className="cliquable-redirect" onClick={redirectTo(activity, 'profile')}>
+                      {{ username: activity.user.username }}
+                    </span>
+                    {' added '}
+                    <span className="cliquable-redirect" onClick={redirectTo(activity, 'details')}>
+                      {{ itemName: activity.itemDetails.name }}
+                    </span>
+                    {' to their list '}
+                    <span className="cliquable-redirect" onClick={redirectTo(activity, 'list')}>
+                      {{ listName: activity.itemDetails.list.name }}
+                    </span>
+                    {' .'}
+                  </Trans>
+                </p>
+              </div>
             </div>
-            <div className="activity-date">{dateActivity}</div>
-          </div>
+          </>
         );
       default:
         return `Activité inconnue.`;
@@ -254,15 +328,17 @@ const Activities = () => {
           <SearchBar placeholder={t('activity.find-users')} onSearchChange={handleSearchChange} />
         </div>
       </div>
-      {!isSearching && (
-        <InfiniteScroll dataLength={activities.length} next={loadMoreActivities} hasMore={hasMoreActivities} initialScrollY={true} style={{ overflow: 'visible' }}>
-          <div>
+      {!activities ? (
+        <Loader />
+      ) : (
+        !isSearching && (
+          <InfiniteScroll dataLength={activities.length} next={loadMoreActivities} hasMore={hasMoreActivities} initialScrollY={true} style={{ overflow: 'hidden' }}>
             {activities.length > 0 ? (
               activities.map((activity, index) => (
                 <React.Fragment key={activity.id}>
                   <div className="activities-container">
                     <h2>{activity.title}</h2>
-                    <div>{renderActivityMessage(activity)}</div>
+                    <div className="activity-container">{renderActivityMessage(activity)}</div>
                   </div>
                   {/* Ajout de la barre de séparation */}
                   {index < activities.length - 1 && <hr className="activity-separator" />}
@@ -271,8 +347,8 @@ const Activities = () => {
             ) : (
               <p className="activity-no-found">{t('activity.no-activities')}.</p>
             )}
-          </div>
-        </InfiniteScroll>
+          </InfiniteScroll>
+        )
       )}
       {
         // Si la recherche est en cours
