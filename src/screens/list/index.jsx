@@ -97,9 +97,9 @@ const ListDetails = () => {
   return (
     <>
       <div className="list-header">
-        <StyledComponents.CssButtonContained onClick={returnToProfil} className="list-back">
-          {t('commun.back-to-profile')}
-        </StyledComponents.CssButtonContained>
+        <div className="list-back">
+          <StyledComponents.CssButtonContained onClick={returnToProfil}>{t('commun.back-to-profile')}</StyledComponents.CssButtonContained>
+        </div>
         <div className="list-name-container">{listName ? <div className="list-name">{listName}</div> : <Spinner />}</div>
       </div>
       <InfiniteScroll dataLength={items.length} next={loadMoreItems} hasMore={hasMore} initialScrollY={true} style={{ overflow: 'visible' }}>
