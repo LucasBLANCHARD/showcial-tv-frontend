@@ -147,7 +147,7 @@ const AddListModal = ({ isOpen, onClose, item, decodedToken, mediaType, onRating
     <ThemeProvider theme={StyledComponents.theme}>
       <Dialog fullWidth maxWidth="md" fullScreen={fullScreen} open={isOpen} onClose={onClose}>
         <div className="dialog-content">
-          <div className="flex-sb">
+          <div className="flex-sb add-list-dialog-header">
             <DialogTitle>
               {t('commun.add')} {item.title ?? item.name} {t('commun.to-a-list')}
             </DialogTitle>
@@ -173,9 +173,6 @@ const AddListModal = ({ isOpen, onClose, item, decodedToken, mediaType, onRating
                   <textarea className="textarea-search-comment" value={comment} onChange={handleCommentChange} ref={textareaRef}></textarea>
                 </div>
                 <div className="modal-buttons gap">
-                  <StyledComponents.CssButtonContained className="half-width" type="reset" onClick={onCancel}>
-                    {t('commun.close')}
-                  </StyledComponents.CssButtonContained>
                   <StyledComponents.CssButtonContained className="half-width" type="submit" onClick={onSave} disabled={!isModified || isSaving}>
                     {t('commun.submit')}
                   </StyledComponents.CssButtonContained>
@@ -183,6 +180,11 @@ const AddListModal = ({ isOpen, onClose, item, decodedToken, mediaType, onRating
               </DialogContent>
             </FormGroup>
           )}
+        </div>
+        <div className="add-list-close">
+          <StyledComponents.CssButtonContained className="half-width" type="reset" onClick={onCancel}>
+            {t('commun.close')}
+          </StyledComponents.CssButtonContained>
         </div>
       </Dialog>
     </ThemeProvider>
