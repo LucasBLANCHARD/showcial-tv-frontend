@@ -74,7 +74,6 @@ const Discover = ({ content, mediaType }) => {
   };
 
   const itemsCarousel = items.map((item, index) => {
-    // Appelez la fonction isAlreadyInWatchlist pour obtenir la valeur de la prop disabled
     const isInWatchlist = isInWatchlistArray[index];
     return (
       <div className="item-card" key={`${item.id}_${index}`}>
