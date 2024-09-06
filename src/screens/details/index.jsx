@@ -145,9 +145,7 @@ const ItemDetails = () => {
                   </Button>
                 </div>
               </div>
-              <div className="poster-container">
-                <LazyImage className="poster" src={`https://image.tmdb.org/t/p/w500${media.poster_path}`} alt={media.title || media.name} />
-              </div>
+              <div className="poster-container">{media.poster_path ? <LazyImage className="poster" src={`https://image.tmdb.org/t/p/w500${media.poster_path}`} alt={media.title || media.name} /> : null}</div>
 
               <div className="details-container">
                 <h1 className="title">{media.title || media.name}</h1>

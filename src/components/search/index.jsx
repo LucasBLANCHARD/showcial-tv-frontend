@@ -106,7 +106,7 @@ const SearchComponent = ({ searchFunction, placeholder, onSearchChange, mediaTyp
         {results.map((item, index) => (
           <div key={`${item.id}_${index}`} className="card" onClick={() => handleCardClick(index)}>
             <div className="image-container">
-              <LazyImage src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title ?? item.name} />
+              {item.poster_path ? <LazyImage src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title ?? item.name} /> : null}
               {isInWatchlistArray[index] && <AccessTimeFilledIcon className="checkmark" />}
             </div>
             <div className="card-bottom">

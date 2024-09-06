@@ -79,7 +79,7 @@ const Discover = ({ content, mediaType }) => {
       <div className="item-card" key={`${item.id}_${index}`}>
         <div className="card-carousel" onClick={() => handleCardClick(index)}>
           <div className="image-container">
-            <LazyImage src={`https://image.tmdb.org/t/p/w185${item.poster_path}`} alt={item.title} />
+            {item.poster_path ? <LazyImage src={`https://image.tmdb.org/t/p/w185${item.poster_path}`} alt={item.title} /> : null}
             {isInWatchlist && <AccessTimeFilledIcon className="checkmark" />}
           </div>
           <div className="card-bottom">
