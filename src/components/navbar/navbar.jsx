@@ -63,7 +63,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-title">{t('navBar.title')}</div>
       <ul className={`navbarNav ${active ? 'active' : ''}`}>{links.length > 0 ? links.map((link, index) => <NavItem key={index} titleKey={link.titleKey} path={link.path} onLogout={link.onLogout} onLogoutHandler={handleLogout} setActive={setActive} />) : null}</ul>
-      <div className={`hamburgerIcon ${active ? 'active' : ''}`} onClick={() => setActive(!active)}>
+      <div className={`hamburgerIcon ${active ? 'active' : ''} ${!links.length ? 'no-links' : ''}`} onClick={() => setActive(!active)}>
         <div></div>
         <div></div>
         <div></div>
