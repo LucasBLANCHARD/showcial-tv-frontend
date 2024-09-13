@@ -127,7 +127,15 @@
     "country": "Pays",
     "languages": "Langues",
     "on-ten": " / 10",
-    "votes": "votes"
+    "votes": "votes",
+    "overview": "Vue d'ensemble",
+    "watch-providers": "Où regarder",
+    "available-on": "Disponible sur",
+    "flat-rate": "Streaming avec abonnement",
+    "free": "Gratuit",
+    "rent": "Location",
+    "buy": "Achat",
+    "justwatch": "vous permet de savoir où regarder légalement vos films favoris et vos émissions télévisées favorites."
   },
 
   "profile": {

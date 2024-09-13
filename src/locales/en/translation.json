@@ -127,7 +127,15 @@
     "country": "Country",
     "languages": "Languages",
     "on-ten": " / 10",
-    "votes": "votes"
+    "votes": "votes",
+    "overview": "Overview",
+    "watch-providers": "Watch Providers",
+    "available-on": "Available on",
+    "flat-rate": "Streaming with subscription",
+    "free": "Free",
+    "rent": "Rent",
+    "buy": "Buy",
+    "justwatch": "allows you to find where to watch your favorite movies and TV shows online."
   },
 
   "profile": {

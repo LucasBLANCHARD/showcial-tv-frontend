@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { addItemToList, getItemInWatchList, getLists, getTmdbItem, removeItemFromList } from '../../api';
@@ -11,6 +12,7 @@ import { Button } from '@mui/material';
 import { t } from 'i18next';
 import ErrorPage from '../error/index';
 import { toast } from 'react-toastify';
+import JwLogo from '../../assets/icons/JW_logo.svg';
 
 const ItemDetails = () => {
   const { tmdbId, mediaType } = useParams();
@@ -22,6 +24,7 @@ const ItemDetails = () => {
   const token = localStorage.getItem('token');
   const [isInWatchlist, setIsInWatchlist] = useState(false);
   const [error, setError] = useState(0);
+  const [activeTab, setActiveTab] = useState('overview');
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -145,67 +148,149 @@ const ItemDetails = () => {
                   </Button>
                 </div>
               </div>
-              <div className="poster-container">{media.poster_path ? <LazyImage className="poster" src={`https://image.tmdb.org/t/p/w500${media.poster_path}`} alt={media.title || media.name} /> : null}</div>
+              <div className="poster-container">{media.poster_path ? <LazyImage className="poster" src={`https://image.tmdb.org/t/p/w342${media.poster_path}`} alt={media.title || media.name} /> : null}</div>
 
               <div className="details-container">
                 <h1 className="title">{media.title || media.name}</h1>
                 <p className="tagline">{media.tagline}</p>
-                <p className="overview">{media.overview}</p>
 
-                <div className="info-grid">
-                  {mediaType === 'movie' && (
-                    <>
-                      <div>
-                        <strong>{t('details.realease-date')}:</strong> {media.release_date}
-                      </div>
-                      <div>
-                        <strong>{t('details.duration')}:</strong> {media.runtime} {t('details.minutes')}
-                      </div>
-                      <div>
-                        <strong>{t('details.budget')}:</strong> ${media.budget.toLocaleString()}
-                      </div>
-                      <div>
-                        <strong>{t('details.income')}:</strong> ${media.revenue.toLocaleString()}
-                      </div>
-                    </>
-                  )}
-                  {mediaType === 'tv' && (
-                    <>
-                      <div>
-                        <strong>{t('details.first-air-date')}:</strong> {media.first_air_date}
-                      </div>
-                      <div>
-                        <strong>{t('details.last-air-date')}:</strong> {media.last_air_date}
-                      </div>
-                      <div>
-                        <strong>{t('details.number-of-seasons')}:</strong> {media.number_of_seasons}
-                      </div>
-                      <div>
-                        <strong>{t('details.number-of-episodes')}</strong> {media.number_of_episodes}
-                      </div>
-                      <div>
-                        <strong>{t('details.time-by-episode')}:</strong> {media.episode_run_time[0]} min
-                      </div>
-                      {media.in_production && media.next_episode_to_air && (
-                        <div>
-                          <strong>{t('details.next-episode')}:</strong> {media.next_episode_to_air.name}
-                        </div>
+                {/* Barre pour naviguer entre Overview et Où regarder */}
+                {media.watchProviders.link && (
+                  <div className="tabs">
+                    <Button variant="outlined" className={activeTab === 'overview' ? 'active' : ''} onClick={() => setActiveTab('overview')}>
+                      {t('details.overview')}
+                    </Button>
+                    {media.watchProviders && (
+                      <Button variant="outlined" className={activeTab === 'media.watchProviders' ? 'active' : ''} onClick={() => setActiveTab('media.watchProviders')}>
+                        {t('details.watch-providers')}
+                      </Button>
+                    )}
+                  </div>
+                )}
+
+                {/* Affichage conditionnel en fonction du tab actif */}
+                {activeTab === 'overview' && (
+                  <div className="overview">
+                    <p className="synopsys">{media.overview}</p>
+
+                    <div className="info-grid">
+                      {/* Information détaillée (déjà présente) */}
+                      {mediaType === 'movie' && (
+                        <>
+                          <div>
+                            <strong>{t('details.realease-date')}:</strong> {media.release_date}
+                          </div>
+                          <div>
+                            <strong>{t('details.duration')}:</strong> {media.runtime} {t('details.minutes')}
+                          </div>
+                          <div>
+                            <strong>{t('details.budget')}:</strong> ${media.budget.toLocaleString()}
+                          </div>
+                          <div>
+                            <strong>{t('details.income')}:</strong> ${media.revenue.toLocaleString()}
+                          </div>
+                        </>
                       )}
-                    </>
-                  )}
-                  <div>
-                    <strong>{t('details.genres')}:</strong> {media.genres.map((genre) => genre.name).join(', ')}
+                      {mediaType === 'tv' && (
+                        <>
+                          <div>
+                            <strong>{t('details.first-air-date')}:</strong> {media.first_air_date}
+                          </div>
+                          <div>
+                            <strong>{t('details.last-air-date')}:</strong> {media.last_air_date}
+                          </div>
+                          <div>
+                            <strong>{t('details.number-of-seasons')}:</strong> {media.number_of_seasons}
+                          </div>
+                          <div>
+                            <strong>{t('details.number-of-episodes')}</strong> {media.number_of_episodes}
+                          </div>
+                          <div>
+                            <strong>{t('details.time-by-episode')}:</strong> {media.episode_run_time[0]} min
+                          </div>
+                          {media.in_production && media.next_episode_to_air && (
+                            <div>
+                              <strong>{t('details.next-episode')}:</strong> {media.next_episode_to_air.name}
+                            </div>
+                          )}
+                        </>
+                      )}
+                      <div>
+                        <strong>{t('details.genres')}:</strong> {media.genres.map((genre) => genre.name).join(', ')}
+                      </div>
+                      <div>
+                        <strong>{t('details.country')}:</strong> {media.origin_country.join(', ')}
+                      </div>
+                      <div>
+                        <strong>{t('details.languages')}:</strong> {media.original_language.toUpperCase()}
+                      </div>
+                      <div>
+                        <strong>{t('list.rate')}:</strong> {media.vote_average} {t('details.on-ten')} ({media.vote_count} {t('details.votes')})
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <strong>{t('details.country')}:</strong> {media.origin_country.join(', ')}
+                )}
+
+                {activeTab === 'media.watchProviders' && media.watchProviders && (
+                  <div className="watch-providers">
+                    <div className="jw-logo gap">
+                      <img src={JwLogo} alt="JustWatch Logo" onClick={() => (window.location.href = 'https://www.justwatch.com')} />
+                      <p className="jw-text">{t('details.justwatch')}</p>
+                    </div>
+                    <h3>{t('details.available-on')}:</h3>
+                    <div></div>
+                    <ul>
+                      {media.watchProviders.flatrate && (
+                        <li>
+                          <strong className="primary-color">{t('details.flat-rate')}:</strong>
+                          <div className="flex gap mt-1">
+                            {media.watchProviders.flatrate.map((provider) => (
+                              <div key={provider.provider_id} className="provider-item">
+                                <LazyImage src={`https://image.tmdb.org/t/p/w45${provider.logo_path}`} alt={provider.provider_name} className="provider-logo" />
+                              </div>
+                            ))}
+                          </div>
+                        </li>
+                      )}
+                      {media.watchProviders.rent && (
+                        <li>
+                          <strong className="primary-color">{t('details.rent')}:</strong>
+                          <div className="flex gap mt-1">
+                            {media.watchProviders.rent.map((provider) => (
+                              <div key={provider.provider_id} className="provider-item">
+                                <LazyImage src={`https://image.tmdb.org/t/p/w45${provider.logo_path}`} alt={provider.provider_name} className="provider-logo" />
+                              </div>
+                            ))}
+                          </div>
+                        </li>
+                      )}
+                      {media.watchProviders.buy && (
+                        <li>
+                          <strong className="primary-color">{t('details.buy')}:</strong>
+                          <div className="flex gap mt-1">
+                            {media.watchProviders.buy.map((provider) => (
+                              <div key={provider.provider_id} className="provider-item">
+                                <LazyImage src={`https://image.tmdb.org/t/p/w45${provider.logo_path}`} alt={provider.provider_name} className="provider-logo" />
+                              </div>
+                            ))}
+                          </div>
+                        </li>
+                      )}
+                      {media.watchProviders.free && (
+                        <li>
+                          <strong className="primary-color">{t('details.free')}:</strong>
+                          <div className="flex gap mt-1">
+                            {media.watchProviders.free.map((provider) => (
+                              <div key={provider.provider_id} className="provider-item">
+                                <LazyImage src={`https://image.tmdb.org/t/p/w45${provider.logo_path}`} alt={provider.provider_name} className="provider-logo" />
+                              </div>
+                            ))}
+                          </div>
+                        </li>
+                      )}
+                    </ul>
                   </div>
-                  <div>
-                    <strong>{t('details.languages')}:</strong> {media.original_language.toUpperCase()}
-                  </div>
-                  <div>
-                    <strong>{t('list.rate')}:</strong> {media.vote_average} {t('details.on-ten')} ({media.vote_count} {t('details.votes')})
-                  </div>
-                </div>
+                )}
               </div>
             </div>
           </div>
