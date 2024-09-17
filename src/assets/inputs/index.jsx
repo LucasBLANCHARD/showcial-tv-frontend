@@ -30,9 +30,6 @@ const CssSelect = styled(Select)({
 });
 
 const CssTextField = styled(TextField)({
-  '.MuiInputBase-root': {
-    width: '250px' // Largeur personnalisée
-  },
   //couleur du label
   '& label': {
     color: '#f8963a'
@@ -48,7 +45,8 @@ const CssTextField = styled(TextField)({
   '& .MuiOutlinedInput-root': {
     color: 'var(--primary-color)',
     '& fieldset': {
-      borderColor: 'var(--primary-color)'
+      borderColor: 'var(--primary-color)',
+      borderWidth: '2px'
     },
     //Quand on survole, couleur du contour
     '&:hover fieldset': {
@@ -117,6 +115,14 @@ const theme = createTheme({
     },
     MuiFormControlLabel: {
       styleOverrides: {
+        root: {
+          marginLeft: 0,
+          marginRight: 0,
+          paddingRight: '15px',
+          '&:hover': {
+            backgroundColor: 'var(--body-bg-darker)'
+          }
+        },
         label: {
           color: 'var(--primary-color)'
         }
@@ -160,6 +166,63 @@ const theme = createTheme({
           whiteSpace: 'pre-wrap',
           wordWrap: 'break-word',
           overflowWrap: 'break-word'
+        }
+      }
+    },
+    MuiBox: {
+      styleOverrides: {
+        root: {
+          color: 'var(--primary-color)'
+        }
+      }
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          color: 'var(--primary-color)',
+          backgroundColor: 'var(--body-bg-lighter)'
+        },
+        deleteIcon: {
+          color: 'var(--primary-color)'
+        }
+      }
+    },
+    MuiFormGroup: {
+      styleOverrides: {
+        root: {
+          color: 'var(--primary-color)',
+          backgroundColor: 'var(--body-bg-lighter)'
+        }
+      }
+    },
+    MuiList: {
+      styleOverrides: {
+        root: {
+          paddingBottom: 0,
+          paddingTop: 0,
+          color: 'var(--primary-color)',
+          backgroundColor: 'var(--body-bg-lighter)'
+        }
+      }
+    },
+    MuiListSubheader: {
+      styleOverrides: {
+        root: {
+          color: 'var(--primary-color-darker)',
+          backgroundColor: 'var(--body-bg-lighter)',
+          fontWeight: 'bold',
+          fontSize: '1.2em',
+          borderBottom: '1px solid var(--primary-color)'
+        }
+      }
+    },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          color: 'var(--primary-color)',
+          '&:hover': {
+            backgroundColor: 'var(--body-bg-darker)'
+          }
         }
       }
     }

@@ -8,6 +8,7 @@ import LazyImage from '../../components/common/LazyImage';
 import HoverCard from '../../components/common/HoverCard';
 import StyledComponents from '../../assets/inputs';
 import { t } from 'i18next';
+import Filters from '../../components/common/Filters';
 
 const ListDetails = () => {
   const token = localStorage.getItem('token');
@@ -20,6 +21,7 @@ const ListDetails = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const [activeCardIndex, setActiveCardIndex] = useState(null); // Index de la carte active
+  const [filters, setFilters] = useState({ genre: '', year: '', rating: '' });
 
   const fetchListDetails = useCallback(async () => {
     try {
@@ -35,22 +37,36 @@ const ListDetails = () => {
       setListName(response.data.name);
 
       const itemIds = newItems.map((item) => item.id);
-
-      const itemsDetails = await getItemsById(token, itemIds, userId);
+      const itemsDetails = await getItemsById(token, itemIds, userId, filters);
 
       // Ajouter les nouveaux items aux items existants
-      setItems((prevItems) => [...prevItems, ...itemsDetails]);
+      setItems((prevItems) => {
+        // Créer un ensemble (Set) pour vérifier les doublons
+        const existingItemIds = new Set(prevItems.map((item) => item.id));
+
+        // Filtrer les nouveaux items pour éliminer les doublons
+        const filteredItems = itemsDetails.filter((item) => !existingItemIds.has(item.id));
+
+        // Ajouter les nouveaux items aux items existants
+        return [...prevItems, ...filteredItems];
+      });
     } catch (error) {
       console.error('Failed to fetch list details', error);
     } finally {
       // Arrêter le chargement
       setLoading(false);
     }
-  }, [listId, page, token]);
+  }, [listId, page, filters, token]);
 
   useEffect(() => {
     fetchListDetails(page);
-  }, [page, fetchListDetails]);
+  }, [filters, page, fetchListDetails]);
+
+  const handleFilterChange = (newFilters) => {
+    setFilters(newFilters);
+    setItems([]);
+    setPage(1);
+  };
 
   const updateNote = (newRating, index) => {
     setItems((prevItems) => {
@@ -102,6 +118,7 @@ const ListDetails = () => {
         </div>
         <div className="list-name-container">{listName ? <div className="list-name">{listName}</div> : <Spinner />}</div>
       </div>
+      <Filters onFilterChange={handleFilterChange} />
       <InfiniteScroll dataLength={items.length} next={loadMoreItems} hasMore={hasMore} initialScrollY={true} style={{ overflow: 'visible' }}>
         {items.length > 0 ? (
           <div className="list-details">
