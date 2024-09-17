@@ -9,11 +9,6 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Switch } from '@mui/material';
 
 const CssSelect = styled(Select)({
-  // Couleur de la bordure
-  '.css-1d3z3hw-MuiOutlinedInput-notchedOutline': {
-    border: '2px solid',
-    borderColor: 'var(--primary-color)'
-  },
   '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
     borderColor: 'var(--primary-color-lighter)'
   },
@@ -231,6 +226,18 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderColor: 'var(--primary-color)'
+        }
+      }
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          color: 'var(--primary-color)',
+          '& fieldset': {
+            borderStyle: 'solid',
+            borderWidth: '2px',
+            borderColor: 'var(--primary-color)'
+          }
         }
       }
     }
