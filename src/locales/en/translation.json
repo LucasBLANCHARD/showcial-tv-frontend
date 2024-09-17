@@ -95,6 +95,41 @@
     "see-comment": "See comment"
   },
 
+  "filters": {
+    "action-&-adventure": "Action & Adventure",
+    "animation": "Animation",
+    "comedy": "Comedy",
+    "crime": "Crime",
+    "documentary": "Documentary",
+    "drama": "Drama",
+    "kids": "Kids",
+    "mystery": "Mystery",
+    "news": "News",
+    "reality": "Reality",
+    "science-fiction-&-fantasy": "Science-Fiction & Fantasy",
+    "soap": "Soap",
+    "talk": "Talk",
+    "war-&-politics": "War & Politics",
+    "western": "Western",
+    "action": "Action",
+    "adventure": "Adventure",
+    "family": "Family",
+    "fantasy": "Fantasy",
+    "history": "History",
+    "horror": "Horror",
+    "music": "Music",
+    "romance": "Romance",
+    "science-fiction": "Science Fiction",
+    "tv-movie": "TV Movie",
+    "thriller": "Thriller",
+    "war": "War",
+    "movie-tv": "Movies, TV Shows",
+    "movies": "Movies",
+    "series": "TV Shows",
+    "both": "Both",
+    "rate-min": "Minimum rating"
+  },
+
   "activity": {
     "activity-feed": "Activity Feed",
     "find-users": "Find users",
@@ -127,7 +162,15 @@
     "country": "Country",
     "languages": "Languages",
     "on-ten": " / 10",
-    "votes": "votes"
+    "votes": "votes",
+    "overview": "Overview",
+    "watch-providers": "Watch Providers",
+    "available-on": "Available on",
+    "flat-rate": "Streaming with subscription",
+    "free": "Free",
+    "rent": "Rent",
+    "buy": "Buy",
+    "justwatch": "allows you to find where to watch your favorite movies and TV shows online."
   },
 
   "profile": {

@@ -10,7 +10,7 @@ import StyledComponents from '../../assets/inputs/index';
 import NewListModal from '../common/NewListModal';
 import { t } from 'i18next';
 import { toast } from 'react-toastify';
-import { DialogContent, DialogTitle, ThemeProvider, useMediaQuery } from '@mui/material';
+import { Button, DialogContent, DialogTitle, ThemeProvider, useMediaQuery } from '@mui/material';
 
 const AddListModal = ({ isOpen, onClose, item, decodedToken, mediaType, onRatingUpdate, onCommentUpdate }) => {
   const token = localStorage.getItem('token');
@@ -173,9 +173,9 @@ const AddListModal = ({ isOpen, onClose, item, decodedToken, mediaType, onRating
                   <textarea className="textarea-search-comment" value={comment} onChange={handleCommentChange} ref={textareaRef}></textarea>
                 </div>
                 <div className="modal-buttons gap">
-                  <StyledComponents.CssButtonContained className="half-width" type="submit" onClick={onSave} disabled={!isModified || isSaving}>
+                  <Button variant="contained" color="success" type="submit" onClick={onSave} disabled={!isModified || isSaving}>
                     {t('commun.submit')}
-                  </StyledComponents.CssButtonContained>
+                  </Button>
                 </div>
               </DialogContent>
             </FormGroup>

@@ -95,6 +95,41 @@
     "see-comment": "Voir le commentaire"
   },
 
+  "filters": {
+    "action-&-adventure": "Action & Aventure",
+    "animation": "Animation",
+    "comedy": "Comédie",
+    "crime": "Crime",
+    "documentary": "Documentaire",
+    "drama": "Drame",
+    "kids": "Enfants",
+    "mystery": "Mystère",
+    "news": "Actualités",
+    "reality": "Réalité",
+    "science-fiction-&-fantasy": "Science-Fiction & Fantastique",
+    "soap": "Feuilleton",
+    "talk": "Talk",
+    "war-&-politics": "Guerre & Politique",
+    "western": "Western",
+    "action": "Action",
+    "adventure": "Aventure",
+    "family": "Familial",
+    "fantasy": "Fantastique",
+    "history": "Histoire",
+    "horror": "Horreur",
+    "music": "Musique",
+    "romance": "Romance",
+    "science-fiction": "Science-Fiction",
+    "tv-movie": "Téléfilm",
+    "thriller": "Thriller",
+    "war": "Guerre",
+    "movie-tv": "Films, Séries",
+    "movies": "Films",
+    "series": "Séries",
+    "both": "Les deux",
+    "rate-min": "Note minimum"
+  },
+
   "activity": {
     "activity-feed": "Fil d'actualité",
     "find-users": "Trouver des utilisateurs",
@@ -127,7 +162,15 @@
     "country": "Pays",
     "languages": "Langues",
     "on-ten": " / 10",
-    "votes": "votes"
+    "votes": "votes",
+    "overview": "Vue d'ensemble",
+    "watch-providers": "Où regarder",
+    "available-on": "Disponible sur",
+    "flat-rate": "Streaming avec abonnement",
+    "free": "Gratuit",
+    "rent": "Location",
+    "buy": "Achat",
+    "justwatch": "vous permet de savoir où regarder légalement vos films favoris et vos émissions télévisées favorites."
   },
 
   "profile": {

@@ -1,0 +1,21 @@
+@use '../../scss/' as *;
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin: 0 0 15px 15px;
+}
+
+.rating-filter {
+  width: 150px;
+}
+
+@include mobile {
+  .filters {
+    margin: 0 15px 15px 15px;
+    justify-content: space-between;
+  }
+  .rating-filter {
+    width: 130px;
+  }
+}

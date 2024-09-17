@@ -9,6 +9,7 @@
 
 .item-detail {
   position: relative;
+  height: 100%;
   color: #fff;
 }
 
@@ -48,7 +49,65 @@
 }
 
 .details-container {
-  max-width: 600px;
+  width: 650px;
+  .tabs {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+
+    button {
+      border: var(--primary-color) 2px solid;
+      color: var(--secondary-color-lighter);
+      border-radius: 0;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+
+      &.active {
+        background-color: var(--primary-color);
+        color: var(--secondary-color-lighter);
+        font-weight: bold;
+      }
+
+      &:hover {
+        background-color: var(--primary-color-darker);
+        color: var(--body-bg);
+      }
+    }
+  }
+  .overview {
+    height: 400px;
+  }
+
+  .watch-providers {
+    height: 400px;
+    h3 {
+      margin-bottom: 10px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        margin-bottom: 10px;
+        strong {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.provider-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+  .provider-logo {
+    width: 45px; /* Taille de l'image, ajustable */
+    height: auto;
+    margin-right: 10px;
+  }
 }
 
 .title {
@@ -62,7 +121,7 @@
   margin-bottom: 20px;
 }
 
-.overview {
+.synopsys {
   font-size: 1.1rem;
   margin-bottom: 20px;
 }
@@ -91,6 +150,22 @@ a:hover {
   text-decoration: underline;
 }
 
+.jw-logo {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.jw-logo img {
+  cursor: pointer;
+}
+
+.jw-logo img:hover {
+  opacity: 0.8;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+}
+
 @include mobile {
   .details-buttons {
     flex-direction: column;
@@ -103,23 +178,46 @@ a:hover {
     }
   }
   .backdrop {
-    height: auto;
+    height: 100%;
+    background-size: contain;
+    background-position: top; // Positionner l'image en haut
+    background-repeat: no-repeat; // Toujours pas de répétition
   }
   .overlay {
-    padding: 0 20px 20px 20px;
     flex-direction: column;
+    padding: 10px; // Moins de padding sur mobile
+    justify-content: flex-start;
+    height: auto;
   }
   .poster-container {
     margin-right: 0;
     margin-bottom: 20px;
-    max-width: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
-  .poster {
-    width: 80%; /* Réduire la taille de l'image pour les petits écrans */
+  .poster-container img {
+    width: 40%; /* Réduire la taille de l'image pour les petits écrans */
   }
+
   .details-container {
     max-width: 100%;
     text-align: center;
+
+    .tabs {
+      justify-content: center;
+      button {
+        width: 100%;
+      }
+    }
+
+    .overview {
+      height: auto;
+    }
+
+    .watch-providers {
+      height: auto;
+    }
   }
   .title {
     font-size: 2rem; /* Réduction de la taille de la police sur mobile */
@@ -127,7 +225,7 @@ a:hover {
   .tagline {
     font-size: 1.2rem;
   }
-  .overview {
+  .synopsys {
     font-size: 1rem;
   }
   .info-grid {
@@ -135,5 +233,49 @@ a:hover {
   }
   .info-grid div {
     font-size: 0.9rem; /* Réduction de la taille de police sur mobile */
+  }
+  .jw-text {
+    display: none;
+  }
+}
+
+@include tablet {
+  .backdrop {
+    height: 100%;
+    background-size: contain;
+    background-position: top; // Positionner l'image en haut
+    background-repeat: no-repeat; // Toujours pas de répétition
+  }
+
+  .overlay {
+    height: 100%;
+  }
+  .poster-container {
+    margin-right: 0;
+    margin-bottom: 20px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .details-container {
+    max-width: 100%;
+    text-align: center;
+
+    .tabs {
+      justify-content: center;
+      button {
+        width: 100%;
+      }
+    }
+
+    .overview {
+      height: auto;
+    }
+
+    .watch-providers {
+      height: auto;
+      min-height: 160px;
+    }
   }
 }
