@@ -11,13 +11,14 @@ import { Switch } from '@mui/material';
 const CssSelect = styled(Select)({
   // Couleur de la bordure
   '.css-1d3z3hw-MuiOutlinedInput-notchedOutline': {
-    border: '2px solid var(--primary-color)'
+    border: '2px solid',
+    borderColor: 'var(--primary-color)'
   },
   '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-    borderColor: 'var(--primary-color-darker)'
+    borderColor: 'var(--primary-color-lighter)'
   },
   '&:hover .MuiOutlinedInput-notchedOutline': {
-    borderColor: 'var(--primary-color-darker)'
+    borderColor: 'var(--primary-color-lighter)'
   },
   // Couleur du texte
   '.MuiSelect-select': {
@@ -223,6 +224,13 @@ const theme = createTheme({
           '&:hover': {
             backgroundColor: 'var(--body-bg-darker)'
           }
+        }
+      }
+    },
+    MuiSelect: {
+      styleOverrides: {
+        root: {
+          borderColor: 'var(--primary-color)'
         }
       }
     }
