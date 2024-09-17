@@ -195,12 +195,12 @@ export const getItemById = async (token, id) => {
 };
 
 //get items by id
-export const getItemsById = async (token, ids, userId) => {
+export const getItemsById = async (token, ids, userId, filters) => {
   const response = await axios.get(`${API_URL}/list/getItemsById`, {
     headers: {
       Authorization: `Bearer ${token}`
     },
-    params: { ids, userId }
+    params: { ids, userId, filters }
   });
   return response.data;
 };
