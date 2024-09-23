@@ -56,8 +56,15 @@ const Activities = () => {
           switch (activity.type) {
             case 'COMMENT_CREATED':
             case 'COMMENT_UPDATE': {
-              const commentDetails = await fetchCommentDetails(activity.referenceId);
-              return { ...activity, commentDetails };
+              try {
+                const commentDetails = await fetchCommentDetails(activity.referenceId);
+                if (!commentDetails) {
+                  return null; // Ne pas ajouter d'activité si le commentaire est introuvable
+                }
+                return { ...activity, commentDetails };
+              } catch (error) {
+                return null; // Ignorer si une erreur se produit lors de la récupération du commentaire
+              }
             }
             case 'ITEM_ADDED': {
               const itemDetails = await fetchItemDetails(activity.referenceId);
@@ -69,11 +76,12 @@ const Activities = () => {
         })
       );
 
-      // Ajouter les nouvelles activités aux activités existantes
-      setActivities((prevActivities) => [...prevActivities, ...updatedActivities]);
+      // Filtrer les activités nulles (celles sans commentaire trouvé)
+      const validActivities = updatedActivities.filter((activity) => activity !== null);
 
-      // Vérifier s'il reste encore des activités à charger
-      setHasMoreActivities(updatedActivities.length === limitActivities);
+      setActivities((prevActivities) => [...prevActivities, ...validActivities]);
+
+      setHasMoreActivities(validActivities.length === limitActivities);
     } catch (error) {
       console.error('Erreur lors de la récupération des activités', error);
     }
